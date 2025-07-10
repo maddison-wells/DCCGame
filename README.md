@@ -7,7 +7,7 @@ After 12 months of not coding a single line of code, I thought it would be fun t
 
 I've decided to turn one of my favourite book series into a game, using the old-school Pokémon game as inspiration, like below. The reason for this is: 
 <li>Pokemon is ICONIC</li>
-<li>I will be able to find graphics easily online, instead of spending 2 weeks drawing a tree and not coding<\li>
+<li>I will be able to find graphics easily online, instead of spending 2 weeks drawing a tree and not coding</li>
 <li>I assume there will be a lot of online resources to help me on my journey</li>
   <br>
 
