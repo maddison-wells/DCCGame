@@ -10,8 +10,7 @@ I've decided to turn one of my favourite book series into a game, using the old-
 <li>I will be able to find graphics easily online, instead of spending 2 weeks drawing a tree and not coding<\li>
 <li>I assume there will be a lot of online resources to help me on my journey</li>
   <br>
-<img src="https://i.redd.it/youddpmwkvba1.jpg" alt="Pokemon game scene" width="200">
-<img src="https://m.media-amazon.com/images/I/81EENArWHmL.jpg" alt="Dungeon Crawler Carl book cover" width="200">
+<img src="https://i.redd.it/youddpmwkvba1.jpg" alt="Pokemon game scene" width="200"> <img src="https://m.media-amazon.com/images/I/81EENArWHmL.jpg" alt="Dungeon Crawler Carl book cover" width="200">
 
 
 <h3>To do list:</h3>
