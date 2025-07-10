@@ -24,3 +24,17 @@ I've decided to turn one of my favourite book series into a game, using the old-
   <img src="https://m.media-amazon.com/images/I/81EENArWHmL.jpg" alt="Dungeon Crawler Carl book cover" height="200">
 </div>
 
+<h3>Scope/Script</h3>
+
+Long-term goal one is to build the first level of the game.
+
+Intro: Small room, Carl playing CoD, sleeping Donut (cat). Text appears, prompting the player to locate Carl's smokes. The player can walk around the room until they find it, interacting with other objects.
+Once the cigarette is lit, the room fills with smoke. The player must quickly open the window, timed. Once the window opens, Donut jumps out into tree. Have to dress Carl for the cold, pink crocs and coat, walk down the stairs inside the apartment ( or maybe just a lazy out one door and automatically outside.
+Then, when outside, something like the apple catcher game, Carl tries to coax Donut out of the tree, and branches fall, which he must avoid. After avoiding x amount of branches, Ms Parsons yells at him, the world collapses, and the dungeon appears. Carl and Donut enter > Level Two.
+
+Step one:
+
+Build inital background and make Carl be able to walk around it.
+
+
+
