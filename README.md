@@ -21,6 +21,6 @@ I've decided to turn one of my favourite book series into a game, using the old-
   <br>
 <div style="white-space: nowrap;">
   <img src="https://i.redd.it/youddpmwkvba1.jpg" alt="Pokemon game scene" width="200">
-  <img src="https://m.media-amazon.com/images/I/81EENArWHmL.jpg" alt="Dungeon Crawler Carl book cover" width="200">
+  <img src="https://m.media-amazon.com/images/I/81EENArWHmL.jpg" alt="Dungeon Crawler Carl book cover" height="200">
 </div>
 
