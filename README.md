@@ -1,6 +1,11 @@
 # DCCGame
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h2>10th July 2025</h2>
+
+It's funny how working towards a project that generally interests you is far more exhilarating than one that doesn't. Today, I did some more fundamental learning on Codedex. I'm also using ChatGPT to help answer questions that I have, such as 'Why do I need to use std:: to declare a string variable but not a double?'. I find its a good tool when self learning because you can just ask it the stupidest questions and you get a quick answer. I know using AI is a touchy subject but its not going anywhere so better to get on board then get let behind. 
+
+
 <h2>9th July 2025</h2>
 
 After 12 months of not coding a single line of code, I thought it would be fun to dust of my skills and dive into a completely new language C++. Although I think about working in fintech the most, working in gaming is something that has always been at the back of my mind. Imagine playing GTA and being able to say 'I coded that handbag you just stole off that Grandma' 
