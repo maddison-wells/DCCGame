@@ -8,6 +8,8 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 <ol>Which 2D library to use</ol>
 <ol>How to move an object around a screen</ol>
 
+I feel like the fundementals are very similar to Javascript, wondering if I should keep using codedex or just try jump in
+
 I saw a TikTok yesterday of some dude saying there's no point in learning C++. I'm not sure why I chose to understand it. Just struck out as interesting. 
 
 <h3>✅ Pros of C++</h3>
