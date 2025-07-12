@@ -3,7 +3,7 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h2>10th July 2025</h2>
 
-<h3>Things to research:</h3>h3>
+<h3>Things to research:</h3>
 
 <ol>Which 2D library to use</ol>
 <ol>How to move an object around a screen</ol>
