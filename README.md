@@ -3,6 +3,40 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h2>10th July 2025</h2>
 
+<h3>Things to research:</h3>h3>
+
+<ol>Which 2D library to use</ol>
+<ol>How to move an object around a screen</ol>
+
+I saw a TikTok yesterday of some dude saying there's no point in learning C++. I'm not sure why I chose to understand it. Just struck out as interesting. 
+
+<h3>✅ Pros of C++</h3>
+  <ul>
+    <li>High performance and fast execution</li>
+    <li>Fine control over memory and system resources</li>
+    <li>Object-Oriented Programming (OOP) support</li>
+    <li>Rich Standard Template Library (STL)</li>
+    <li>Cross-platform compatibility</li>
+    <li>Mature language with lots of community support</li>
+    <li>Compatible with C code and libraries</li>
+  </ul>
+
+  <h3>❌ Cons of C++</h3>
+  <ul>
+    <li>Steep learning curve and complex syntax</li>
+    <li>Manual memory management (risk of memory leaks, bugs)</li>
+    <li>Lack of built-in safety features (e.g., garbage collection)</li>
+    <li>Longer compile times</li>
+    <li>Poor support for GUI/web out of the box</li>
+    <li>Difficult debugging, especially with pointers/templates</li>
+  </ul>
+
+
+
+
+
+<h2>10th July 2025</h2>
+
 It's funny how working towards a project that generally interests you is far more exhilarating than one that doesn't. Today, I did some more fundamental learning on Codedex. I'm also using ChatGPT to help answer questions that I have, such as 'Why do I need to use std:: to declare a string variable but not a double?'. I find its a good tool when self learning because you can just ask it the stupidest questions and you get a quick answer. I know using AI is a touchy subject but its not going anywhere so better to get on board then get let behind. 
 
 
