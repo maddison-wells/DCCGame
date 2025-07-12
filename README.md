@@ -1,4 +1,5 @@
 # DCCGame
+
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h2>10th July 2025</h2>
@@ -8,9 +9,13 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 <ol>Which 2D library to use</ol>
 <ol>How to move an object around a screen</ol>
 
-I feel like the fundementals are very similar to Javascript, wondering if I should keep using codedex or just try jump in
+I feel like the fundementals are very similar to Javascript, wondering if I should keep using codedex or just try jump in.
 
-I saw a TikTok yesterday of some dude saying there's no point in learning C++. I'm not sure why I chose to understand it. Just struck out as interesting. 
+I got a copy of<a href="https://www.packtpub.com/en-us/product/sfml-game-development-by-example-9781785287343" target="_blank">
+<em>SFML Game Development By Example: Create and develop exciting games from start to finish using SFML</em>
+</a>
+
+I saw a TikTok yesterday of some dude saying there's no point in learning C++. I'm not sure why I chose to understand it. Just struck out as interesting.
 
 <h3>✅ Pros of C++</h3>
   <ul>
@@ -33,25 +38,20 @@ I saw a TikTok yesterday of some dude saying there's no point in learning C++. I
     <li>Difficult debugging, especially with pointers/templates</li>
   </ul>
 
-
-
-
-
 <h2>10th July 2025</h2>
 
-It's funny how working towards a project that generally interests you is far more exhilarating than one that doesn't. Today, I did some more fundamental learning on Codedex. I'm also using ChatGPT to help answer questions that I have, such as 'Why do I need to use std:: to declare a string variable but not a double?'. I find its a good tool when self learning because you can just ask it the stupidest questions and you get a quick answer. I know using AI is a touchy subject but its not going anywhere so better to get on board then get let behind. 
-
+It's funny how working towards a project that generally interests you is far more exhilarating than one that doesn't. Today, I did some more fundamental learning on Codedex. I'm also using ChatGPT to help answer questions that I have, such as 'Why do I need to use std:: to declare a string variable but not a double?'. I find its a good tool when self learning because you can just ask it the stupidest questions and you get a quick answer. I know using AI is a touchy subject but its not going anywhere so better to get on board then get let behind.
 
 <h2>9th July 2025</h2>
 
-After 12 months of not coding a single line of code, I thought it would be fun to dust of my skills and dive into a completely new language C++. Although I think about working in fintech the most, working in gaming is something that has always been at the back of my mind. Imagine playing GTA and being able to say 'I coded that handbag you just stole off that Grandma' 
+After 12 months of not coding a single line of code, I thought it would be fun to dust of my skills and dive into a completely new language C++. Although I think about working in fintech the most, working in gaming is something that has always been at the back of my mind. Imagine playing GTA and being able to say 'I coded that handbag you just stole off that Grandma'
 
-I've decided to turn one of my favourite book series into a game, using the old-school Pokémon game as inspiration, like below. The reason for this is: 
+I've decided to turn one of my favourite book series into a game, using the old-school Pokémon game as inspiration, like below. The reason for this is:
+
 <li>Pokemon is ICONIC</li>
 <li>I will be able to find graphics easily online, instead of spending 2 weeks drawing a tree and not coding</li>
 <li>I assume there will be a lot of online resources to help me on my journey</li>
   <br>
-
 
 <h3>To do list:</h3>
 
@@ -76,6 +76,3 @@ Then, when outside, something like the apple catcher game, Carl tries to coax Do
 Step one:
 
 Build inital background and make Carl be able to walk around it.
-
-
-
