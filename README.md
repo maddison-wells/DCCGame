@@ -2,6 +2,10 @@
 
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h2>13th July 2025</h2>
+
+15hr layover in Hong Kong
+
 <h2>10th July 2025</h2>
 
 <h3>Things to research:</h3>
