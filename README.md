@@ -2,6 +2,10 @@
 
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h2>1st August 2025</h2>
+
+Still making my way through the online tutorial series, I've decided it will probably take about a month to work my way through. As I go I will be thinking about how each lesson related to my game.
+
 <h2>18th July 2025</h2>
 
 https://www.youtube.com/playlist?list=PLs6oRBoE2-Q_fX_rzraQekRoL7Kr7s5xi
