@@ -6,6 +6,8 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 Still making my way through the online tutorial series, I've decided it will probably take about a month to work my way through. As I go I will be thinking about how each lesson related to my game.
 
+Annoyingly, there is an issue with the SFML version I have instaled and it doesn't like my code. This is where I get annoyed with self-learning because it takes ages to sort out issues, it would be good to have a mentor for things like this. I use chatGPT for this but sometimes I feel like I just go around in circles.
+
 <h2>18th July 2025</h2>
 
 https://www.youtube.com/playlist?list=PLs6oRBoE2-Q_fX_rzraQekRoL7Kr7s5xi
