@@ -2,9 +2,15 @@
 
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h2>18th July 2025</h2>
+
+https://www.youtube.com/playlist?list=PLs6oRBoE2-Q_fX_rzraQekRoL7Kr7s5xi
+
 <h2>13th July 2025</h2>
 
-15hr layover in Hong Kong
+15hr layover in Hong Kong finished off the intro course to C++
+
+The thing I like about coding is that even though there are lots of languges the fundementals are generally the same. So once you have a good understanding of loops and variables etc, you can use that knowledge as a blueprint to learn new things.
 
 <h2>10th July 2025</h2>
 
