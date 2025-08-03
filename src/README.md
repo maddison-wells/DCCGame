@@ -2,6 +2,12 @@
 
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h2>2nd August 2025</h2>
+
+That was painful. It took me 4hrs to get the compiler to work. I ended up finding this tutorial which was made within the month and was able to get to work from there
+
+https://www.youtube.com/watch?v=g4iqNGcw3-Q&ab_channel=SuboptimalEngineer
+
 <h2>1st August 2025</h2>
 
 Still making my way through the online tutorial series, I've decided it will probably take about a month to work my way through. As I go I will be thinking about how each lesson related to my game.
