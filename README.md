@@ -2,11 +2,34 @@
 
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h2>3rd August 2025</h2>
+
+The tutorial I am following is for an older version. of SFML and when looking at the documentation to compare, it doesn't look like it has been updated either, which is interesting.
+
+Still working my ways towards getting a pixel to move around the screen. Im interested in the idea of triple buffers, for example if you have a character that is about to move, the buffer will not know that is your intention until the event, so how useful is it?
+
+Time will tell and by time I mean chatGPT. The way I understand it is that the buffer happens after the event not before, makes sense. So I guess the buffer just matches the screen until otherwise told.
+
+What I learnt today:
+
+- Vector 2f
+  Origin (0,0) = (x,y) - which is in top left hand corner
+  Used for position and direction.
+
+- I drew and moved a circle around, which once the movement is related to an event, I would have completed my first goal
+
+<img src="img/shape-tut.png">
+
 <h2>2nd August 2025</h2>
 
-That was painful. It took me 4hrs to get the compiler to work. I ended up finding this tutorial which was made within the month and was able to get to work from there
+That was painful. It took me 4hrs to get the compiler to work. I ended up finding this tutorial which was made within the month and was able to get to work from there. Also learned about Makefile, which is a helpful tool. I'm not sure why I can't just use the run button but you win some, you lose some.
 
 https://www.youtube.com/watch?v=g4iqNGcw3-Q&ab_channel=SuboptimalEngineer
+
+What I learnt today after the choas:
+
+- The game loop(update and draw functions), screen tearing (refresh rate imbalance) and triple buffers using 2 back-buffers.
+- V-sync - mointor vs frames per second
 
 <h2>1st August 2025</h2>
 
