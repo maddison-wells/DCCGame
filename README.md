@@ -2,9 +2,33 @@
 
 C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
+<h3>Refactor To-Do List</h3>
+  <ul>
+    <li>Movement function 
+    - Not Started 5/8/25</li>
+  </ul>
+
+<h2>5th August 2025</h2>
+
+Ended up finishing up yesterday a little frustrated. As I mentioned before the tutorial I'm following is for an older version of SFML and I am working with SFML 3.0. I was having trouble getting my sprite to move around my screen with a key press event, it got to the point where I just needed to leave it and come back today with fresh eyes.
+
+I solved the issue within 5 mins today... in the words of Ryland Grace I must have been in stupid mode.
+
+I've written the code for up,down,left and right by using a series of if statements, however, I feel there is probably a cleaner way to code this. So I will add it to my come back to it list.
+
+Next step, it rendering different sprites with the movement .
+
+<h2>4th August 2025</h2>
+
+Another day, another Youtube tutorial.
+
+- Texture - is a image made up of pixels. Can't 'draw' a texture only a sprite with a loaded texture.
+
+- Sprite - can contain position, size, texture, scale, rotation. Apply/wrap a texture to the sprite and then move it.
+
 <h2>3rd August 2025</h2>
 
-The tutorial I am following is for an older version. of SFML and when looking at the documentation to compare, it doesn't look like it has been updated either, which is interesting.
+The tutorial I am following is for an older version of SFML and when looking at the documentation to compare, it doesn't look like it has been updated either, which is interesting.
 
 Still working my ways towards getting a pixel to move around the screen. Im interested in the idea of triple buffers, for example if you have a character that is about to move, the buffer will not know that is your intention until the event, so how useful is it?
 
@@ -15,6 +39,24 @@ What I learnt today:
 - Vector 2f
   Origin (0,0) = (x,y) - which is in top left hand corner
   Used for position and direction.
+  Can set a pivot point if needed to change origin point
+
+- Antialiased shapes - smooth lines.
+
+```cpp
+#include <SFML/Graphics.hpp>
+
+int main() {
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+
+    sf::RenderWindow window(
+        sf::VideoMode(800, 600),
+        "SFML shapes",
+        sf::Style::Default,
+        settings)}
+
+```
 
 - I drew and moved a circle around, which once the movement is related to an event, I would have completed my first goal
 
@@ -121,3 +163,7 @@ Then, when outside, something like the apple catcher game, Carl tries to coax Do
 Step one:
 
 Build inital background and make Carl be able to walk around it.
+
+```
+
+```
