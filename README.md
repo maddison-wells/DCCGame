@@ -4,7 +4,7 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h3>Refactor To-Do List</h3>
   <ul>
-    <li>Movement function 
+    <li>Movement function & walking animation
     - Not Started 5/8/25</li>
   </ul>
 
@@ -16,7 +16,25 @@ I solved the issue within 5 mins today... in the words of Ryland Grace I must ha
 
 I've written the code for up,down,left and right by using a series of if statements, however, I feel there is probably a cleaner way to code this. So I will add it to my come back to it list.
 
-Next step, it rendering different sprites with the movement .
+<span style="color:orange; font-weight:bold;">By doing the movements outside the event loop, there is no delay in movement as the window class isn't being used.</span>
+
+Next step, it rendering different sprites with the movement. And also create a limit to the movement, so the sprite can't be moved outside of the screen. Instead of watching the tutorial, I tried this myself by using `setTextureRect` in my `if `statement, which worked. I wonder again the code can be refactored. It doesn'e seem to work for multiple renders though, when I did a quick google it looks like something called frames may be used. I will wait for the tutorial to cover that.
+
+I found this really cool sprite generator - https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#
+
+<a href="img/player/textures/sheet-credits.txt" target="_blank">
+<em>Credit to the creators 
+</em>
+</a>
+
+Here is my character Carl
+
+<img src="img/player/textures/carl.png" width="150" height="150">
+
+And here is Donut
+"[LPC] Cats and Dogs" Artist: bluecarrot16 License: CC-BY 3.0 / GPL 3.0 / GPL 2.0 / OGA-BY 3.0 Please link to opengameart: http://opengameart.org/content/lpc-cats-and-dogs"
+
+<img src="img/player/textures/donut.png" width="75" height="75">
 
 <h2>4th August 2025</h2>
 

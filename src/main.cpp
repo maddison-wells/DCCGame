@@ -8,15 +8,15 @@
 int main() {
 
 //----------------INITIALISE---------    
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Dungeon Crawler Carl");
+    sf::RenderWindow window(sf::VideoMode({1920, 1080}), "Dungeon Crawler Carl");
 
  //----------------INITIALISE-------- 
  
  // -----------LOAD --------
 
-sf::Texture playerTexture;
+sf::Texture carlTexture;
 
-if(playerTexture.loadFromFile("../img/player/textures/sprite_sheet.png"))
+if(carlTexture.loadFromFile("../img/player/textures/carl_sheet.png"))
 {
     std::cout << "loaded" << std::endl;
   
@@ -25,13 +25,31 @@ else{
     std::cout << "not loaded" << std::endl;
 }
 
-sf::Sprite playerSprite(playerTexture);
-playerSprite.setTexture(playerTexture);
+sf::Sprite carlSprite(carlTexture);
+carlSprite.setTexture(carlTexture);
 
-int Xindex = 0;
-int Yindex = 0;
+// int Xindex = 0;
+// int Yindex = 0;
 // {x, Y}, {Width, Height}
-playerSprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
+carlSprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
+
+sf::Texture donutTexture;
+
+if(donutTexture.loadFromFile("../img/player/textures/donut_sprite.png"))
+{
+    std::cout << "donut loaded" << std::endl;
+  
+}
+else{
+    std::cout << "donut not loaded" << std::endl;
+}
+
+sf::Sprite donutSprite(donutTexture);
+donutSprite.setTexture(donutTexture);
+donutSprite.setPosition(sf::Vector2f(400,100));
+
+
+donutSprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
 
  //----------LOAD-------
 //----------------UPDATE---------    
@@ -46,38 +64,40 @@ playerSprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
         
             
         }
-         sf::Vector2f position = playerSprite.getPosition();
+         sf::Vector2f position = carlSprite.getPosition();
 
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
-                // Move right by 10 units
-                playerSprite.setTextureRect(sf::IntRect({64, 64 *3}, {64,64}));
-                playerSprite.setPosition(position + sf::Vector2f(.05f, 0.f));
-                playerSprite.setTextureRect(sf::IntRect({0, 64 *3}, {64,64}));}
+                carlSprite.setTextureRect(sf::IntRect({64, 64 *3}, {64,64}));
+                carlSprite.setPosition(position + sf::Vector2f(.05f, 0.f));}
             
             
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-                // Move left by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(-1.f, 0.f));
-              
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
+                
+                
+                carlSprite.setTextureRect(sf::IntRect({0, 64}, {64,64}));
+                carlSprite.setPosition(position + sf::Vector2f(-.05f, 0.f));
+
+             }
             
 
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-                // Move up by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(0.f, -1.f));
+             {  carlSprite.setTextureRect(sf::IntRect({0, 0}, {64,64}));
+                carlSprite.setPosition(position + sf::Vector2f(0.f, -.05f));
               
-            
+             }
 
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-                // Move down by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(0.f, 1.f));
-              
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
+                carlSprite.setTextureRect(sf::IntRect({0, 128}, {64,64}));
+                carlSprite.setPosition(position + sf::Vector2f(0.f, .05f));
+             }
             
 //----------------UPDATE---------  
 
 //----------------DRAW---------  
         window.clear(sf::Color::Black);
         // drawing code goes here, shouldnt update here
-        window.draw(playerSprite);
+        window.draw(carlSprite);
+        window.draw(donutSprite);
         window.display();
 //----------------DRAW---------  
     }
