@@ -31,7 +31,7 @@ playerSprite.setTexture(playerTexture);
 int Xindex = 0;
 int Yindex = 0;
 // {x, Y}, {Width, Height}
-playerSprite.setTextureRect(sf::IntRect({Xindex * 64, Yindex * 64}, {64, 64}));
+playerSprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
 
  //----------LOAD-------
 //----------------UPDATE---------    
@@ -41,52 +41,37 @@ playerSprite.setTextureRect(sf::IntRect({Xindex * 64, Yindex * 64}, {64, 64}));
         while (auto event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>()) { 
                 window.close();
-            // make sprite move
-            }
-            // get current position
-           else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
-
-               
-                sf::Vector2f position = playerSprite.getPosition();
-
-                // Move right by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(10.f, 0.f));
-              
-            }
             
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
-
-               
-                sf::Vector2f position = playerSprite.getPosition();
-
-                // Move left by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(-10.f, 0.f));
-              
             }
-
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)){
-
-               
-                sf::Vector2f position = playerSprite.getPosition();
-
-                // Move up by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(0.f, -10.f));
-              
-            }
-
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
-
-               
-                sf::Vector2f position = playerSprite.getPosition();
-
-                // Move down by 10 units
-                playerSprite.setPosition(position + sf::Vector2f(0.f, 10.f));
-              
-            }
-            
+        
             
         }
+         sf::Vector2f position = playerSprite.getPosition();
 
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
+                // Move right by 10 units
+                playerSprite.setTextureRect(sf::IntRect({64, 64 *3}, {64,64}));
+                playerSprite.setPosition(position + sf::Vector2f(.05f, 0.f));
+                playerSprite.setTextureRect(sf::IntRect({0, 64 *3}, {64,64}));}
+            
+            
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+                // Move left by 10 units
+                playerSprite.setPosition(position + sf::Vector2f(-1.f, 0.f));
+              
+            
+
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+                // Move up by 10 units
+                playerSprite.setPosition(position + sf::Vector2f(0.f, -1.f));
+              
+            
+
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+                // Move down by 10 units
+                playerSprite.setPosition(position + sf::Vector2f(0.f, 1.f));
+              
+            
 //----------------UPDATE---------  
 
 //----------------DRAW---------  
