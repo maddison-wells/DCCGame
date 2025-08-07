@@ -8,33 +8,76 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>6th August 2025</h2>
+
+🎉 I forgot to mention I made it to my first goal yesterday. I was able to get **Carl** to move around the screen. Still need to finesse it with more character renders but it was for sure a win.
+
+<p align="center">
+<img src="img/gameplay/gameplay-2.png" width="250" height="180">
+<img src="img/gameplay/gameplay-1.png" width="250" height="180">
+</p>
+
+Next goal is getting **Carl** to be able to interact with **Donut** and his environment, which is his apartment in the first level.
+
+- List - creates a variable for every event. ie (bullets)
+
+`List<sf::sprite>` indexed based but in c++ its actual called a `Vector` and to add we use `push_back` and we use `size()` to get count
+
+Example:
+
+```cpp
+std::vector<std::datatype> variable;
+
+  variable.push_back(element);
+
+std::cout << variable[index] << std::endl;
+
+```
+
+`size_t` an unsigned(non-negative numbers) integer type that can represent the size of the largest object your system can allocate. Use if vectors or containers you are using can't be negative. Otherwise use `int`
+
+`capacity()` returns how many elements worth of memory have been allocated (reserved) in RAM
+
+`reserve()` if vector size is known, you can reserve the amount/location of memory, meaning that during game loop if more items are added, there isn't a load being used to move the vector if capacity is reached. Best example case would be bullets, if there is a max amount of ammo, ie 200 bullets. The bullets vector can reserve 200 elements of memory, making the game faster.
+
 <h2>5th August 2025</h2>
 
 Ended up finishing up yesterday a little frustrated. As I mentioned before the tutorial I'm following is for an older version of SFML and I am working with SFML 3.0. I was having trouble getting my sprite to move around my screen with a key press event, it got to the point where I just needed to leave it and come back today with fresh eyes.
 
-I solved the issue within 5 mins today... in the words of Ryland Grace I must have been in stupid mode.
+I solved the issue within 5 mins today... in the words of Ryland Grace I must have been in 'stupid mode'.
 
 I've written the code for up,down,left and right by using a series of if statements, however, I feel there is probably a cleaner way to code this. So I will add it to my come back to it list.
 
 <span style="color:orange; font-weight:bold;">By doing the movements outside the event loop, there is no delay in movement as the window class isn't being used.</span>
 
-Next step, it rendering different sprites with the movement. And also create a limit to the movement, so the sprite can't be moved outside of the screen. Instead of watching the tutorial, I tried this myself by using `setTextureRect` in my `if `statement, which worked. I wonder again the code can be refactored. It doesn'e seem to work for multiple renders though, when I did a quick google it looks like something called frames may be used. I will wait for the tutorial to cover that.
+Next step, it rendering different sprites with the movement. And also create a limit to the movement, so the sprite can't be moved outside of the screen. Instead of watching the tutorial, I tried this myself by using `setTextureRect` in my `if `statement, which worked. I wonder again the code can be refactored. It doesn't seem to work for multiple renders though, when I did a quick google it looks like something called frames may be used. I will wait for the tutorial to cover that.
 
 I found this really cool sprite generator - https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#
 
-<a href="img/player/textures/sheet-credits.txt" target="_blank">
-<em>Credit to the creators 
-</em>
-</a>
+<p align="center">
+  <strong>Here are my characters:</strong><br><br>
 
-Here is my character Carl
+  <em>
+    Carl sprite I generated — <a href="img/player/textures/sheet-credits.txt" target="_blank">Credit</a>
+  </em>
+  
+  <em>
+    Donut sprite from the "[LPC] Cats and Dogs" collection by bluecarrot16.<br>
+    Licensed under CC-BY 3.0 / GPL 3.0 / GPL 2.0 / OGA-BY 3.0 — <a href="http://opengameart.org/content/lpc-cats-and-dogs" target="_blank">Source</a>
+  </em>
+</p>
 
-<img src="img/player/textures/carl.png" width="150" height="150">
-
-And here is Donut
-"[LPC] Cats and Dogs" Artist: bluecarrot16 License: CC-BY 3.0 / GPL 3.0 / GPL 2.0 / OGA-BY 3.0 Please link to opengameart: http://opengameart.org/content/lpc-cats-and-dogs"
-
-<img src="img/player/textures/donut.png" width="75" height="75">
+<div style="text-align:center; display:flex; justify-content:center; gap:40px; align-items:center;">
+  <div>
+    <p><strong>Carl</strong></p>
+    <img src="img/player/textures/carl.png" width="150" height="150" alt="Carl">
+  </div>
+  
+  <div>
+    <p><strong>Donut</strong></p>
+    <img src="img/player/textures/donut.png" width="150" height="150" alt="Donut">
+  </div>
+</div>
 
 <h2>4th August 2025</h2>
 
@@ -86,16 +129,16 @@ That was painful. It took me 4hrs to get the compiler to work. I ended up findin
 
 https://www.youtube.com/watch?v=g4iqNGcw3-Q&ab_channel=SuboptimalEngineer
 
-What I learnt today after the choas:
+What I learnt today after the chaos:
 
 - The game loop(update and draw functions), screen tearing (refresh rate imbalance) and triple buffers using 2 back-buffers.
-- V-sync - mointor vs frames per second
+- V-sync - monitor vs frames per second
 
 <h2>1st August 2025</h2>
 
 Still making my way through the online tutorial series, I've decided it will probably take about a month to work my way through. As I go I will be thinking about how each lesson related to my game.
 
-Annoyingly, there is an issue with the SFML version I have instaled and it doesn't like my code. This is where I get annoyed with self-learning because it takes ages to sort out issues, it would be good to have a mentor for things like this. I use chatGPT for this but sometimes I feel like I just go around in circles.
+Annoyingly, there is an issue with the SFML version I have installed and it doesn't like my code. This is where I get annoyed with self-learning because it takes ages to sort out issues, it would be good to have a mentor for things like this. I use chatGPT for this but sometimes I feel like I just go around in circles.
 
 <h2>18th July 2025</h2>
 
@@ -105,7 +148,7 @@ https://www.youtube.com/playlist?list=PLs6oRBoE2-Q_fX_rzraQekRoL7Kr7s5xi
 
 15hr layover in Hong Kong finished off the intro course to C++
 
-The thing I like about coding is that even though there are lots of languges the fundementals are generally the same. So once you have a good understanding of loops and variables etc, you can use that knowledge as a blueprint to learn new things.
+The thing I like about coding is that even though there are lots of languages the fundamentals are generally the same. So once you have a good understanding of loops and variables etc, you can use that knowledge as a blueprint to learn new things.
 
 <h2>10th July 2025</h2>
 
@@ -114,7 +157,7 @@ The thing I like about coding is that even though there are lots of languges the
 <ol>Which 2D library to use</ol>
 <ol>How to move an object around a screen</ol>
 
-I feel like the fundementals are very similar to Javascript, wondering if I should keep using codedex or just try jump in.
+I feel like the fundamentals are very similar to Javascript, wondering if I should keep using CodeDex or just try jump in.
 
 I got a copy of<a href="https://www.packtpub.com/en-us/product/sfml-game-development-by-example-9781785287343" target="_blank">
 <em>SFML Game Development By Example: Create and develop exciting games from start to finish using SFML</em>
@@ -149,7 +192,7 @@ It's funny how working towards a project that generally interests you is far mor
 
 <h2>9th July 2025</h2>
 
-After 12 months of not coding a single line of code, I thought it would be fun to dust of my skills and dive into a completely new language C++. Although I think about working in fintech the most, working in gaming is something that has always been at the back of my mind. Imagine playing GTA and being able to say 'I coded that handbag you just stole off that Grandma'
+After 12 months of not coding a single line of code, I thought it would be fun to dust of my skills and dive into a completely new language C++. Although I think about working in FinTech the most, working in gaming is something that has always been at the back of my mind. Imagine playing GTA and being able to say 'I coded that handbag you just stole off that Grandma'
 
 I've decided to turn one of my favourite book series into a game, using the old-school Pokémon game as inspiration, like below. The reason for this is:
 
@@ -161,7 +204,7 @@ I've decided to turn one of my favourite book series into a game, using the old-
 <h3>To do list:</h3>
 
 <ol>Scope out project: Write a brief 'script' of what the game will look like</ol>
-<ol>Learn some basic C++: I have started a codedex course just to compare to other languages I know</ol>
+<ol>Learn some basic C++: I have started a Codedex course just to compare to other languages I know</ol>
 <ol>Look into how C++ integrates with 2D game framework or multimedia libraries</ol>
 
   <br>
@@ -175,12 +218,12 @@ I've decided to turn one of my favourite book series into a game, using the old-
 Long-term goal one is to build the first level of the game.
 
 Intro: Small room, Carl playing CoD, sleeping Donut (cat). Text appears, prompting the player to locate Carl's smokes. The player can walk around the room until they find it, interacting with other objects.
-Once the cigarette is lit, the room fills with smoke. The player must quickly open the window, timed. Once the window opens, Donut jumps out into tree. Have to dress Carl for the cold, pink crocs and coat, walk down the stairs inside the apartment ( or maybe just a lazy out one door and automatically outside.
+Once the cigarette is lit, the room fills with smoke. The player must quickly open the window, timed. Once the window opens, Donut jumps out into tree. Have to dress Carl for the cold, pink crocs and coat, walk down the stairs inside the apartment (or maybe just a lazy out one door and automatically outside.)
 Then, when outside, something like the apple catcher game, Carl tries to coax Donut out of the tree, and branches fall, which he must avoid. After avoiding x amount of branches, Ms Parsons yells at him, the world collapses, and the dungeon appears. Carl and Donut enter > Level Two.
 
 Step one:
 
-Build inital background and make Carl be able to walk around it.
+Build initial background and make Carl be able to walk around it.
 
 ```
 
