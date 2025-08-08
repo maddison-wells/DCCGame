@@ -8,6 +8,46 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>7th August 2025</h2>
+
+<h3>Tutorial Part 12 - Creating and firing projectiles 🔫 *pow pow</h3>
+
+`Direction Vector` = Target - Current location
+
+`normalize` - length of vector (magnitude = pythagoras) make it equal 1, so that it moves in smaller increments - illusion of motion. Not preset, so need to use the function below.
+
+** May need to have a case for 0,0 division **
+
+```cpp
+
+#include <vector>
+#include <math.h>
+
+sf::Vector2f NormalizeVector(sf::Vector2f vector)
+{
+    float m = std::sqrt(vector.x *vector.x + vector.y * vector.y); //magnitude
+
+    sf::Vector2f normalizedVector;
+
+   normalizedVector.x = vector.x /m;
+   normalizedVector.y = vector.y /m;
+
+
+}
+```
+
+Steps for creating
+
+1. Create NormalizeVector function outside main loop
+2. Create vector projectiles, set shape - initialise
+3. Create vector projectileDirection - initialise
+4. Create variable for projectileSpeed - initialise
+5. In game loop create `if` statement to add items to projectiles vector and set position of last item to position of firing sprite.
+6. Game loop - `for loop` for each projectiles[i] - getting direction (sprite position - [i] position). - NormalizeVector(direction) - setPosition of i
+7. in draw section - `for loop` that runs through projectiles vector and draws each i
+
+This is all pretty straight forward logically, however remembering it all will take some practise.
+
 <h2>6th August 2025</h2>
 
 🎉 I forgot to mention I made it to my first goal yesterday. I was able to get **Carl** to move around the screen. Still need to finesse it with more character renders but it was for sure a win.
@@ -18,6 +58,8 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 </p>
 
 Next goal is getting **Carl** to be able to interact with **Donut** and his environment, which is his apartment in the first level.
+
+- Hexadecimal 0-F
 
 - List - creates a variable for every event. ie (bullets)
 
