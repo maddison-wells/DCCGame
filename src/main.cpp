@@ -6,6 +6,7 @@
 #include <iostream>
 #include<vector>
 #include<math.h>
+#include "class/Carl.h"
 
 sf::Vector2f NormalizeVector(sf::Vector2f vector)
 {
@@ -33,6 +34,10 @@ int main() {
 
  //----------------INITIALISE-------- 
 
+Carl carl; //object from player class
+carl.Initialize();
+carl.Load();
+
 std::vector<sf::RectangleShape> projectiles; //plural
 
 // sf:: RectangleShape projectile(sf::Vector2f({10,5}));
@@ -42,30 +47,9 @@ float projectileSpeed = 0.5f;
 sf::Vector2f projectileDirection;
 
 
-
  // -----------LOAD --------
 
-sf::Texture carlTexture;
 
-if(carlTexture.loadFromFile("../img/player/textures/carl_sheet.png"))
-{
-    std::cout << "loaded" << std::endl;
-  
-}
-else{
-    std::cout << "not loaded" << std::endl;
-}
-
-sf::Sprite carlSprite(carlTexture);
-carlSprite.setTexture(carlTexture);
-
-
-// int Xindex = 0;
-// int Yindex = 0;
-// {x, Y}, {Width, Height}
-carlSprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
-
-carlSprite.setPosition({100,700});
 
 sf::Texture donutTexture;
 
@@ -87,13 +71,7 @@ donutSprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
 
  //----------LOAD-------
 
-//  projectile.setPosition(carlSprite.getPosition());
 
-//  //----projectile direction
-
-//  sf::Vector2f projectileDirection = donutSprite.getPosition() - projectile.getPosition();
-
-//  projectileDirection = NormalizeVector(projectileDirection);
 
 
 //----------------UPDATE---------    
@@ -107,50 +85,18 @@ donutSprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
             if (event->is<sf::Event::Closed>()) { 
                 window.close();
             
-            }
-        
-    
-
-            
+            }  
         }
+        carl.Update();
 
-        // projectile.setPosition(projectile.getPosition() + projectileDirection * projectileSpeed);
-
-         sf::Vector2f position = carlSprite.getPosition();
-
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
-                carlSprite.setTextureRect(sf::IntRect({64, 64 *3}, {64,64}));
-                carlSprite.setPosition(position + sf::Vector2f(.5f, 0.f));}
-            
-            
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
-                
-                
-                carlSprite.setTextureRect(sf::IntRect({0, 64}, {64,64}));
-                carlSprite.setPosition(position + sf::Vector2f(-.5f, 0.f));
-
-             }
-            
-
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-             {  carlSprite.setTextureRect(sf::IntRect({0, 0}, {64,64}));
-                carlSprite.setPosition(position + sf::Vector2f(0.f, -.5f));
-              
-             }
-
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
-                carlSprite.setTextureRect(sf::IntRect({0, 128}, {64,64}));
-                carlSprite.setPosition(position + sf::Vector2f(0.f, .5f));
-             }
-    
-
+     
         if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
         {
             projectiles.push_back(sf::RectangleShape(sf::Vector2f({50,25}))); //add to vector
 
             int i = projectiles.size() -1;
             
-            projectiles[i].setPosition(carlSprite.getPosition());
+            projectiles[i].setPosition(carl.sprite.getPosition());
         }
 
         for(size_t i = 0; i < projectiles.size(); i++)
@@ -160,13 +106,15 @@ donutSprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
             projectiles[i].setPosition(projectiles[i].getPosition()+ projectileDirection * projectileSpeed);
         }
 
+carl.Update();
 
 //----------------UPDATE---------  
 
 //----------------DRAW---------  
         window.clear(sf::Color::Black);
         // drawing code goes here, shouldn't update here
-        window.draw(carlSprite);
+        carl.Draw();
+        window.draw(carl.sprite);
         window.draw(donutSprite);
         for (size_t i = 0; i <projectiles.size(); i ++){
             window.draw(projectiles[i]);

@@ -8,6 +8,34 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>8th August 2025</h2>
+
+<h3>Tutorial Part 13 </h3>
+
+The goal of today was to clean up my code by creating classes for **Carl**,**Donut**, etc. However, I am now having trouble compiling them. I added my new header file to my `Makefile` but that didn't fix the issue. I also added a constructor but that is now also causing issue. Frustrated, I knew as soon as I started moving code, I would run into an issue.
+
+Okay, so note to self, check youtube comments. I think a general practise I should implement is setting a time limit to trying to figure something out myself, then after x mins, look for it in the comments/use AI.
+
+Explanation of what I was struggling with:
+
+When you make an object of your class (like player), C++ automatically tries to create all the smaller parts inside it — these are called member variables.
+
+For something like texture, C++ knows how to make it by itself because it has a simple way to create it without any extra info (a default constructor).
+
+But for sprite, since version 3 of SFML, it needs some info to be created — it can’t just be made out of thin air. It needs a texture to work.
+
+So, C++ can’t make sprite automatically unless you tell it how — which means you have to give it the texture when you create it. You do this by writing:
+
+`Carl::Carl() : sprite(texture) {
+    // now sprite is created using the texture you provide
+}`
+
+Classes
+
+- Header file (.h/.hpp) - not complied. It's a blueprint. No code to execute. Is useful so that the large chunks are code aren't in multiple places, faster and smaller. Reduce compilation time
+
+- .cpp - complied. Code to execute
+
 <h2>7th August 2025</h2>
 
 <h3>Tutorial Part 12 - Creating and firing projectiles 🔫 *pow pow</h3>
