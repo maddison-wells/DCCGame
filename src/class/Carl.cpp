@@ -1,15 +1,14 @@
 #include "Carl.h"
 #include <iostream>
+#include <Math.h>
 
 
-// Carl::Carl() {
-
-// }
-
-void Carl::Draw()
+void Carl::Draw(sf::RenderWindow& window)
 {
-
-
+   window.draw(sprite);
+   for (size_t i = 0; i <projectiles.size(); i ++){
+            window.draw(projectiles[i]);
+        }
 }
 
 void Carl::Initialize()
@@ -35,7 +34,7 @@ sprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
 sprite.setPosition({100,700});
 }
 
-void Carl::Update(){
+void Carl::Update(Donut& donut){
 
   sf::Vector2f position = sprite.getPosition();
 
@@ -64,5 +63,21 @@ void Carl::Update(){
                 sprite.setPosition(position + sf::Vector2f(0.f, .5f));
              }
     
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+        {
+            projectiles.push_back(sf::RectangleShape(sf::Vector2f({50,25}))); //add to vector
+
+            int i = projectiles.size() -1;
+            
+            projectiles[i].setPosition(sprite.getPosition());
+        }
+
+        for(size_t i = 0; i < projectiles.size(); i++)
+        {
+            projectileDirection = donut.sprite.getPosition() - projectiles[i].getPosition();
+            projectileDirection = Math.NormalizeVector(projectileDirection);
+            projectiles[i].setPosition(projectiles[i].getPosition()+ projectileDirection * projectileSpeed);
+        }
+
 
 }

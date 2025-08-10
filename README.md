@@ -14,7 +14,7 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 The goal of today was to clean up my code by creating classes for **Carl**,**Donut**, etc. However, I am now having trouble compiling them. I added my new header file to my `Makefile` but that didn't fix the issue. I also added a constructor but that is now also causing issue. Frustrated, I knew as soon as I started moving code, I would run into an issue.
 
-Okay, so note to self, check youtube comments. I think a general practise I should implement is setting a time limit to trying to figure something out myself, then after x mins, look for it in the comments/use AI.
+Okay, so note to self, check youtube comments. I think a general practise I should implement is setting a time limit to trying to figure something out myself, then after x mins, look for it in the comments/use AI. I also didn't check the documentation, which should have been my first stop.
 
 Explanation of what I was struggling with:
 
@@ -35,6 +35,10 @@ Classes
 - Header file (.h/.hpp) - not complied. It's a blueprint. No code to execute. Is useful so that the large chunks are code aren't in multiple places, faster and smaller. Reduce compilation time
 
 - .cpp - complied. Code to execute
+
+- Reference `&`
+
+- Static - let you use a function without having to create an object. (not Carl carl;) just Math. Not good for things where the variables will change ie health between 2 players, update on the other would to. Use when multiple objects will share teh same data.
 
 <h2>7th August 2025</h2>
 
