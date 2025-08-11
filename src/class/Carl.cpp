@@ -1,6 +1,6 @@
 #include "Carl.h"
 #include <iostream>
-#include <Math.h>
+#include "Math.h"
 
 
 void Carl::Draw(sf::RenderWindow& window)
@@ -9,11 +9,16 @@ void Carl::Draw(sf::RenderWindow& window)
    for (size_t i = 0; i <projectiles.size(); i ++){
             window.draw(projectiles[i]);
         }
+   
+   window.draw(boundingRectangle);     
 }
 
 void Carl::Initialize()
-{
-
+{ 
+  boundingRectangle.setFillColor(sf::Color::Transparent);
+  boundingRectangle.setOutlineColor(sf::Color::Red);
+  boundingRectangle.setOutlineThickness(1.f);
+  boundingRectangle.setSize(sf::Vector2f({64,64}));
 }
 
 void Carl::Load(){
@@ -75,9 +80,13 @@ void Carl::Update(Donut& donut){
         for(size_t i = 0; i < projectiles.size(); i++)
         {
             projectileDirection = donut.sprite.getPosition() - projectiles[i].getPosition();
-            projectileDirection = Math.NormalizeVector(projectileDirection);
+            projectileDirection = Math::NormalizeVector(projectileDirection);
             projectiles[i].setPosition(projectiles[i].getPosition()+ projectileDirection * projectileSpeed);
         }
 
+        boundingRectangle.setPosition(sprite.getPosition());
 
+      if(Math::CheckRectCollision(sprite.getGlobalBounds(), donut.sprite.getGlobalBounds())){
+        std::cout<<"collison"<< std::endl;
+      }
 }

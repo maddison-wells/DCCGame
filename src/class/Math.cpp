@@ -1,6 +1,8 @@
 #include "Math.h"
+#include <SFML/Graphics.hpp>
 
-sf::Vector2f NormalizeVector(sf::Vector2f vector)
+
+sf::Vector2f Math::NormalizeVector(sf::Vector2f vector)
 {
     float m = std::sqrt(vector.x * vector.x + vector.y * vector.y);
     
@@ -12,4 +14,13 @@ sf::Vector2f NormalizeVector(sf::Vector2f vector)
    return normalizedVector;
 
 
+}
+
+bool Math::CheckRectCollision(sf::FloatRect rect1, sf::FloatRect rect2)
+{
+    if (const std::optional intersection = rect1.findIntersection(rect2))
+    {
+        return true;
+    }
+    return false;
 }

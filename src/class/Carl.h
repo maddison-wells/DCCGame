@@ -13,6 +13,8 @@ class Carl
     float projectileSpeed = 0.5f;
     sf::Vector2f projectileDirection;
 
+    sf::RectangleShape boundingRectangle; 
+
     public:
     sf::Sprite sprite; 
     sf::Texture texture;

@@ -2,6 +2,10 @@
 #include <iostream>
 
 void Donut::Initialize(){
+  boundingRectangle.setFillColor(sf::Color::Transparent);
+  boundingRectangle.setOutlineColor(sf::Color::Blue);
+  boundingRectangle.setOutlineThickness(1.f);
+  boundingRectangle.setSize(sf::Vector2f({64,64}));
 
 }
 
@@ -26,9 +30,10 @@ sprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
 }
 
 void Donut::Update(){
-
+ boundingRectangle.setPosition(sprite.getPosition());
 }
 
 void Donut::Draw(sf::RenderWindow& window){
   window.draw(sprite);
+  window.draw(boundingRectangle);  
 }

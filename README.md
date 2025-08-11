@@ -8,7 +8,27 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>10th August 2025</h2>
+
+Funnily enough in the AABB tutorial, towards the end, the dude realised there was a intersection method already built in. I decided to read the docs and see if I could implement that myself.
+
+```cpp
+sf::FloatRect otherBox = ...;
+if (const std::optional intersection = boundingBox.findIntersection(otherBox))
+{
+    // collision!
+}
+```
+
+Don't really understand the difference between `getLocalBounds()` and `getGlobalBounds()` but that seems like a future me problem.
+
 <h2>8th August 2025</h2>
+
+<h3>Tutorial Part 14 - AABB Collision Detection </h3>
+
+Axis Aligned Bounding Boxes
+
+1Right > 2Left && 2Right > 1Left
 
 <h3>Tutorial Part 13 </h3>
 
@@ -38,7 +58,7 @@ Classes
 
 - Reference `&`
 
-- Static - let you use a function without having to create an object. (not Carl carl;) just Math. Not good for things where the variables will change ie health between 2 players, update on the other would to. Use when multiple objects will share teh same data.
+- Static - let you use a function without having to create an object. (not Carl carl;) just Math. Not good for things where the variables will change ie health between 2 players, update on the other would to. Use when multiple objects will share the same data.
 
 <h2>7th August 2025</h2>
 

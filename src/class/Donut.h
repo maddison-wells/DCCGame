@@ -9,6 +9,8 @@ class Donut
   sf::Sprite sprite;
   sf::Texture texture;
   Donut() : sprite(texture){};
+  
+  sf::RectangleShape boundingRectangle; 
 
   public:
 
