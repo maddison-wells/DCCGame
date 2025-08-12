@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <optional>
-
+#include <iostream>
 #include "class/Carl.h"
 #include "class/Donut.h"
 
@@ -16,7 +16,13 @@ int main() {
 
     //  sf::RenderWindow window(sf::VideoMode({600, 400}), "Dungeon Crawler Carl");
 
+    window.setFramerateLimit(240);
+
 //----------------INITIALISE-------- 
+
+sf::Font font("../Assets/Fonts/Arial.ttf");
+sf::Text frameRateText(font);
+
 
 Carl carl; //object 
 Donut donut;
@@ -27,29 +33,41 @@ donut.Initialize();
 
 // -----------LOAD --------
 
+
 carl.Load();
 donut.Load();
+
+sf::Clock clock;
 //----------LOAD-------
 
 //----------------UPDATE---------    
 //----------------main game loop---------    
     while (window.isOpen()) {
 
+        sf::Time deltaTimeTimer = clock.restart();
+        float deltaTime = deltaTimeTimer.asMilliseconds();
+        std::cout << deltaTime << std::endl;
+
+        frameRateText.setString(std::to_string(1000.0f/deltaTime));
+
         while (auto event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>()) { 
                 window.close();
             }  
-        }
-        donut.Update();
-        carl.Update(donut);
+        }   
+        
+        donut.Update(deltaTime);
+        carl.Update(deltaTime, donut);
 //----------------UPDATE---------  
 
 //----------------DRAW---------  
         window.clear(sf::Color::Black);
         carl.Draw(window);
         donut.Draw(window); 
+        window.draw(frameRateText);
         window.display();
 //----------------DRAW---------  
+    
     }
 
     return 0;

@@ -29,7 +29,7 @@ sprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
 
 }
 
-void Donut::Update(){
+void Donut::Update(float deltaTime){
  boundingRectangle.setPosition(sprite.getPosition());
 }
 

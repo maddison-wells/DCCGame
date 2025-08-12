@@ -39,33 +39,33 @@ sprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
 sprite.setPosition({100,700});
 }
 
-void Carl::Update(Donut& donut){
+void Carl::Update(float deltaTime, Donut& donut){
 
   sf::Vector2f position = sprite.getPosition();
 
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
                 sprite.setTextureRect(sf::IntRect({64, 64 *3}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(.5f, 0.f));}
+                sprite.setPosition(position + sf::Vector2f(1.f, 0.f) * playerSpeed * deltaTime);}
             
             
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
                 
                 
                 sprite.setTextureRect(sf::IntRect({0, 64}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(-.5f, 0.f));
+                sprite.setPosition(position + sf::Vector2f(-.5f, 0.f)* playerSpeed * deltaTime);
 
              }
             
 
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
              {  sprite.setTextureRect(sf::IntRect({0, 0}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(0.f, -.5f));
+                sprite.setPosition(position + sf::Vector2f(0.f, -.5f)* playerSpeed * deltaTime);
               
              }
 
              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
                 sprite.setTextureRect(sf::IntRect({0, 128}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(0.f, .5f));
+                sprite.setPosition(position + sf::Vector2f(0.f, .5f)* playerSpeed * deltaTime);
              }
     
             if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
@@ -81,7 +81,7 @@ void Carl::Update(Donut& donut){
         {
             projectileDirection = donut.sprite.getPosition() - projectiles[i].getPosition();
             projectileDirection = Math::NormalizeVector(projectileDirection);
-            projectiles[i].setPosition(projectiles[i].getPosition()+ projectileDirection * projectileSpeed);
+            projectiles[i].setPosition(projectiles[i].getPosition()+ projectileDirection * projectileSpeed * deltaTime);
         }
 
         boundingRectangle.setPosition(sprite.getPosition());

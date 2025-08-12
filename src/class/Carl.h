@@ -9,6 +9,7 @@ class Carl
     private:
     std::vector<sf::RectangleShape> projectiles; //plural
 
+    float playerSpeed = 2.0f;
 
     float projectileSpeed = 0.5f;
     sf::Vector2f projectileDirection;
@@ -18,6 +19,7 @@ class Carl
     public:
     sf::Sprite sprite; 
     sf::Texture texture;
+  
     Carl() : sprite(texture){}; //Constructor
     
 
@@ -25,7 +27,7 @@ class Carl
 
   void Initialize(); //called once per app start
   void Load(); //called once per app start
-  void Update(Donut& donut); // called once per frame
+  void Update(float deltaTime, Donut& donut); // called once per frame
   void Draw(sf::RenderWindow& window); // called once per frame
 
 };

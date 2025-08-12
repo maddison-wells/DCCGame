@@ -8,6 +8,47 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>12th August 2025</h2>
+
+<h2>11th August 2025</h2>
+
+<h3>Tutorial Part 16 - Constructors, Destructors, Rendering Text </h3>
+
+Render FPS - without Fraps
+`FPS = 1000 / 16.67 ≈ 60`
+
+To render, similar to sprite vs. texture relationship. `Text` is what is drawn but needs `Font` to say what to draw
+
+```cpp
+sf::Font font("../Assets/Fonts/Arial.ttf");
+sf::Text frameRateText(font);
+```
+
+Reducing health
+Destroy projectile when hits
+Destroy projectile when outside
+
+<h3>Tutorial Part 15 - Frame Rate </h3>
+
+Uses Fraps to get frame rate we see that shooting bullets decreases frame rate, which slows the game.
+
+`deltaTime` - Independent of frame rate
+
+How long one frame takes to render. It will increase as my frame rate decreases to keep a stable game, we do this by:
+
+1. Creating a clock and **restarting** it. I originally had it as reset and it tanked my game, do this in game loop.
+
+2. From there we can calculate `deltaTime` and pass it in the Update loop
+
+```cpp
+  sf::Time deltaTimeTimer = clock.restart();
+        float deltaTime = deltaTimeTimer.asMilliseconds();
+```
+
+3. We then times the movement of sprites by `deltaTime`
+
+I understand its important to game function but there are no dopamine hits in these theory based lessons 😴
+
 <h2>10th August 2025</h2>
 
 Funnily enough in the AABB tutorial, towards the end, the dude realised there was a intersection method already built in. I decided to read the docs and see if I could implement that myself.
