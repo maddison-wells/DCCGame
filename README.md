@@ -4,11 +4,16 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h3>Refactor To-Do List</h3>
   <ul>
+    <li>frameRate class
+    - Rewatch part 16 1hr20.
+    Not Started 12/8/25</li>
     <li>Movement function & walking animation
     - Not Started 5/8/25</li>
   </ul>
 
 <h2>12th August 2025</h2>
+
+The tutorial moved the framerate code into its own class, but I couldn't quite get it to work and I was getting frustrated, so I have added it to my refactor list. I'm trying to be more mindful of my time when issues arise.
 
 <h2>11th August 2025</h2>
 
