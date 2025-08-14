@@ -27,14 +27,12 @@ sf::Text frameRateText(font);
 Carl carl; //object 
 Donut donut;
 
-//----------------INITIALISE-------- 
-carl.Initialize();
+//----------------INITIALISE / Load-------- 
 donut.Initialize();
-
-// -----------LOAD --------
-
-carl.Load();
 donut.Load();
+
+carl.Initialize();
+carl.Load();
 
 sf::Clock clock;
 //----------LOAD-------
@@ -45,7 +43,7 @@ sf::Clock clock;
 
         sf::Time deltaTimeTimer = clock.restart();
         float deltaTime = deltaTimeTimer.asMilliseconds();
-        std::cout << deltaTime << std::endl;
+        // std::cout << deltaTime << std::endl;
 
         frameRateText.setString(std::to_string(1000.0f/deltaTime));
 
@@ -55,8 +53,8 @@ sf::Clock clock;
             }  
         }   
         
-        donut.Update(deltaTime);
         carl.Update(deltaTime, donut);
+        donut.Update(deltaTime);
 //----------------UPDATE---------  
 
 //----------------DRAW---------  

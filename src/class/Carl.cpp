@@ -1,13 +1,27 @@
 #include "Carl.h"
 #include <iostream>
 #include "Math.h"
+#include <vector>
 
+Carl::Carl() :
+
+
+    sprite(texture),
+    maxFireRate(1000),
+    fireRateTimer(0)
+ {}
+  
+Carl:: ~Carl()
+{
+
+}
 
 void Carl::Draw(sf::RenderWindow& window)
 {
    window.draw(sprite);
    for (size_t i = 0; i <projectiles.size(); i ++){
-            window.draw(projectiles[i]);
+            window.draw(projectiles[i].shape);
+
         }
    
    window.draw(boundingRectangle);     
@@ -39,54 +53,72 @@ sprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
 sprite.setPosition({100,700});
 }
 
-void Carl::Update(float deltaTime, Donut& donut){
+void Carl::Update(float deltaTime, Donut& donut)
+{
+    // Timer for fire rate
+    fireRateTimer += deltaTime;
 
-  sf::Vector2f position = sprite.getPosition();
+    // --- Player movement ---
+    sf::Vector2f position = sprite.getPosition();
 
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
-                sprite.setTextureRect(sf::IntRect({64, 64 *3}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(1.f, 0.f) * playerSpeed * deltaTime);}
-            
-            
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
-                
-                
-                sprite.setTextureRect(sf::IntRect({0, 64}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(-.5f, 0.f)* playerSpeed * deltaTime);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)) {
+        sprite.setTextureRect(sf::IntRect({64, 64 * 3}, {64, 64}));
+        sprite.setPosition(position + sf::Vector2f(1.f, 0.f) * playerSpeed * deltaTime);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)) {
+        sprite.setTextureRect(sf::IntRect({0, 64}, {64, 64}));
+        sprite.setPosition(position + sf::Vector2f(-.5f, 0.f) * playerSpeed * deltaTime);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
+        sprite.setTextureRect(sf::IntRect({0, 0}, {64, 64}));
+        sprite.setPosition(position + sf::Vector2f(0.f, -.5f) * playerSpeed * deltaTime);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)) {
+        sprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
+        sprite.setPosition(position + sf::Vector2f(0.f, .5f) * playerSpeed * deltaTime);
+    }
 
-             }
-            
+    // --- Fire projectile ---
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fireRateTimer >= maxFireRate)
+    {
+        Projectile p;
+        p.shape.setSize(sf::Vector2f(50, 25));
+        p.shape.setPosition(sprite.getPosition());
 
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-             {  sprite.setTextureRect(sf::IntRect({0, 0}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(0.f, -.5f)* playerSpeed * deltaTime);
-              
-             }
-
-             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
-                sprite.setTextureRect(sf::IntRect({0, 128}, {64,64}));
-                sprite.setPosition(position + sf::Vector2f(0.f, .5f)* playerSpeed * deltaTime);
-             }
-    
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-        {
-            projectiles.push_back(sf::RectangleShape(sf::Vector2f({50,25}))); //add to vector
-
-            int i = projectiles.size() -1;
-            
-            projectiles[i].setPosition(sprite.getPosition());
+        // Calculate initial direction toward Donut
+        sf::Vector2f diff = donut.sprite.getPosition() - p.shape.getPosition();
+        if (Math::VectorLength(diff) > 0.001f) {
+            p.direction = Math::NormalizeVector(diff);
+        } else {
+            p.direction = {0.f, 0.f};
         }
 
-        for(size_t i = 0; i < projectiles.size(); i++)
+        projectiles.push_back(p);
+        fireRateTimer = 0;
+    }
+
+    // --- Move projectiles ---
+    for (auto& proj : projectiles) {
+        proj.shape.setPosition(
+            proj.shape.getPosition() + proj.direction * projectileSpeed * deltaTime);
+    }
+
+    // --- Collision detection ---
+    for (int i = projectiles.size() - 1; i >= 0; --i)
+    {
+        if(donut.health >=0){
+        if (Math::CheckRectCollision(projectiles[i].shape.getGlobalBounds(),
+                                     donut.sprite.getGlobalBounds()))
         {
-            projectileDirection = donut.sprite.getPosition() - projectiles[i].getPosition();
-            projectileDirection = Math::NormalizeVector(projectileDirection);
-            projectiles[i].setPosition(projectiles[i].getPosition()+ projectileDirection * projectileSpeed * deltaTime);
+            std::cout << "collision" << std::endl;
+            projectiles.erase(projectiles.begin() + i);
+
+            donut.health -= 10;
+            std::cout << donut.health << std::endl;
         }
+    }
+    }
 
-        boundingRectangle.setPosition(sprite.getPosition());
-
-      if(Math::CheckRectCollision(sprite.getGlobalBounds(), donut.sprite.getGlobalBounds())){
-        std::cout<<"collison"<< std::endl;
-      }
+    // Update bounding box
+    boundingRectangle.setPosition(sprite.getPosition());
 }

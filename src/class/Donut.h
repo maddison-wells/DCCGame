@@ -4,13 +4,21 @@
 
 class Donut 
 { 
+
+
+
   public:
 
+  int health; 
   sf::Sprite sprite;
   sf::Texture texture;
-  Donut() : sprite(texture){};
   
-  sf::RectangleShape boundingRectangle; 
+  Donut();
+  ~Donut();
+  
+  sf::RectangleShape boundingRectangle;
+  
+  
 
   public:
 

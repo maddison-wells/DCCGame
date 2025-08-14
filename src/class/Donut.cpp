@@ -1,6 +1,16 @@
 #include "Donut.h"
 #include <iostream>
 
+Donut::Donut() :
+
+sprite(texture),
+health(20)
+
+{}
+
+Donut:: ~Donut()
+{}
+
 void Donut::Initialize(){
   boundingRectangle.setFillColor(sf::Color::Transparent);
   boundingRectangle.setOutlineColor(sf::Color::Blue);
@@ -30,10 +40,15 @@ sprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
 }
 
 void Donut::Update(float deltaTime){
+  if(health >0){
  boundingRectangle.setPosition(sprite.getPosition());
+}
 }
 
 void Donut::Draw(sf::RenderWindow& window){
+  
+  if(health > 0){
   window.draw(sprite);
   window.draw(boundingRectangle);  
+  }
 }

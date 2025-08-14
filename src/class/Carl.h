@@ -7,12 +7,21 @@
 class Carl
 {
     private:
-    std::vector<sf::RectangleShape> projectiles; //plural
+    // std::vector<sf::RectangleShape> projectiles; 
+struct Projectile
+{
+    sf::RectangleShape shape;
+    sf::Vector2f direction;
+};
+
+std::vector<Projectile> projectiles;
 
     float playerSpeed = 2.0f;
+    float maxFireRate;
+    float fireRateTimer;
 
     float projectileSpeed = 0.5f;
-    sf::Vector2f projectileDirection;
+    // sf::Vector2f projectileDirection;
 
     sf::RectangleShape boundingRectangle; 
 
@@ -20,10 +29,11 @@ class Carl
     sf::Sprite sprite; 
     sf::Texture texture;
   
-    Carl() : sprite(texture){}; //Constructor
-    
-
   public:
+
+    Carl(); //Constructor
+    ~Carl();
+
 
   void Initialize(); //called once per app start
   void Load(); //called once per app start

@@ -16,6 +16,11 @@ sf::Vector2f Math::NormalizeVector(sf::Vector2f vector)
 
 }
 
+float Math::VectorLength(const sf::Vector2f& v) // ✅ New function
+{
+    return std::sqrt(v.x * v.x + v.y * v.y);
+}
+
 bool Math::CheckRectCollision(sf::FloatRect rect1, sf::FloatRect rect2)
 {
     if (const std::optional intersection = rect1.findIntersection(rect2))
