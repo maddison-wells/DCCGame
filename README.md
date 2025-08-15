@@ -1,6 +1,15 @@
 # DCCGame
 
-C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
+C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
+
+<h3>Goals List</h3>
+
+<ul>
+    <li>Get Carl to move into other areas - ❌</li>
+    <li>Get Carl to interact with background - ❌</li>
+    <li>Render background - ❌</li>
+    <li>Render Carl and get him to move - ✅</li>
+  </ul>
 
 <h3>Refactor To-Do List</h3>
   <ul>
@@ -11,9 +20,59 @@ C++ game based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>14th August 2025</h2>
+
+Making an editor
+
+Tile is a single image that renders the world, using 32px x 32px
+
+So a tilesheet is spilt into an array and then we tell the game to render giving each square of the game a relative number to the array, including 'empty' spots. The tutorial guy was able to load a small version of his entire sprite onto his screen but I wasn't able to that, it simply wouldn't appear. I tried a heap of trouble shooting but the solution seemed to be that the sprite was too big, once I used `sprite.setTextureRect` and set an amount, those tiles appeared.
+
+So after adding in a health function for **Donut** my app crashed. I set up a constructor and everything worked fine except the health part.
+
+Initially, I had my projectiles and collision logic inside **Carl**, but I was calculating projectile movement before properly accessing **Donut’s** position, and my projectile type or scope wasn’t consistent, which made them go to (0,0) or crashed the program. The fixes I made were: making sure projectiles were a vector of SFML drawable shapes, calculating direction only after confirming Donut exists and is loaded, checking collisions in a separate loop going backward when erasing projectiles, and ensuring all member variables like `boundingRectangle` were properly declared in the class. From this, I learned to always verify object existence and types before using them for movement or collisions, and to erase safely when looping through vectors.
+
+In the tutorial, he renders the health above the enemy sprite but I will save that for later, as I want to have a health bar on top of the screen during game play.
+
+<h2>13th August 2025</h2>
+
+<h3>Tutorial Part 17 - Projectile Collision </h3>
+
+projectile based:
+
+Removing the projectile from the screen once they hit or go off screen. Need to be mindful of frames, if collision doesn't happen if too fast and colliding item isn't in frame. Can also happen if target is too small/thin
+
+hitscan -
+
+Casting a ray from certain origin and certain direction. If it hits, collision is detected.
+
+Ray isn't cast from weapon but from the camera
+
+Bullet Physics - Long shot, bullet drop
+
+Fire Rate - Adding a condition to mouse press that uses deltaTime to calculate when the last bullet was fired and only allows the bullet to fire if fireRate(+= deltaTime) is >= maxFireRate which in this case is 1000(1s). fireRate needs to be reset to 0 with each loop. Faster bullets, change maxFireRate.
+
+Another day, another lesson. The issue I was having yesterday, trying to put the frameRate stuff into its own class and failing came back to bite me in the ass. The same issue happened today and it was due to constructor/destructor. I should have persisted yesterday instead of being lazy to save myself the trouble today.
+
+The issue was that in my `Carl.h` file, I was defining the constructor and destructor by including `{}` ie
+
+```cpp
+ Carl(){};
+~Carl(){};
+```
+
+So when I went to my `Carl.cpp` and redefined both, the compiler was not happy. So now my `Carl.h` looks like this:
+
+```cpp
+ Carl();
+~Carl();
+```
+
 <h2>12th August 2025</h2>
 
 The tutorial moved the framerate code into its own class, but I couldn't quite get it to work and I was getting frustrated, so I have added it to my refactor list. I'm trying to be more mindful of my time when issues arise.
+
+`~` destructor - same name as class and constructor - destroys.
 
 <h2>11th August 2025</h2>
 

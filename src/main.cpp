@@ -6,6 +6,7 @@
 #include <iostream>
 #include "class/Carl.h"
 #include "class/Donut.h"
+#include "class/Map.h"
 
 
 
@@ -26,6 +27,7 @@ sf::Text frameRateText(font);
 
 Carl carl; //object 
 Donut donut;
+Map map;
 
 //----------------INITIALISE / Load-------- 
 donut.Initialize();
@@ -33,6 +35,9 @@ donut.Load();
 
 carl.Initialize();
 carl.Load();
+
+map.Initialize();
+map.Load();
 
 sf::Clock clock;
 //----------LOAD-------
@@ -51,17 +56,19 @@ sf::Clock clock;
             if (event->is<sf::Event::Closed>()) { 
                 window.close();
             }  
-        }   
-        
+        }  
+
+        map.Update(deltaTime);
         carl.Update(deltaTime, donut);
         donut.Update(deltaTime);
 //----------------UPDATE---------  
 
 //----------------DRAW---------  
-        window.clear(sf::Color::Black);
+        window.clear();
+        map.Draw(window);
         carl.Draw(window);
         donut.Draw(window); 
-        window.draw(frameRateText);
+        // window.draw(frameRateText);
         window.display();
 //----------------DRAW---------  
     
