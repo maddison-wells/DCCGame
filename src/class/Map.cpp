@@ -5,7 +5,7 @@ Map::Map()
     : tileWidth(32), tileHeight(32), totalTilesX(0), totalTilesY(0)
 {
     // Pre-allocate memory for sprites, but don't construct them yet
-    sprites.reserve(NUM_SPRITES);
+    // sprites.reserve(NUM_SPRITES);
 }
 
 Map::~Map()
@@ -23,30 +23,50 @@ void Map::Load()
         totalTilesX = tileSheetTexture.getSize().x / tileWidth;
         totalTilesY = tileSheetTexture.getSize().y / tileHeight;
 
-        sprites.clear(); // reset any old sprites
+        tiles.clear();
+        tiles.reserve(totalTilesX * totalTilesY);
 
-        for (int i = 0; i < NUM_SPRITES; i++)
+        for (size_t y = 0; y < totalTilesY; y++)
         {
-            // Construct sprite directly with texture
-            sprites.emplace_back(tileSheetTexture);
+            for (size_t x = 0; x < totalTilesX; x++)
+            {
+                int i = x + y * totalTilesX;
 
-            sprites[i].setTextureRect(
-                sf::IntRect(
-                    sf::Vector2i(i * tileWidth, 0), 
+                sf::IntRect rect(
+                    sf::Vector2i(x * tileWidth, y * tileHeight),
                     sf::Vector2i(tileWidth, tileHeight)
-                )
-            );
-            sprites[i].setPosition(sf::Vector2f(100.f + i * tileWidth, 100.f));
+                );
+
+                Tile tile(i, &tileSheetTexture, rect);
+
+                // set position after sprite exists
+                if (tile.sprite) {
+                    tile.sprite->setPosition(
+                        sf::Vector2f(100.f + x * tileWidth, 100.f + y * tileHeight)
+                    );
+                }
+
+                tiles.emplace_back(std::move(tile));
+            }
         }
     }
     else
     {
         std::cout << "Failed to load texture!" << std::endl;
     }
+    
 }
 
 void Map::Update(float deltaTime)
 {
 }
 
-void Map::Draw(sf::RenderWindow& window) { for (int i = 0; i < NUM_SPRITES; i++) { window.draw(sprites[i]); } }
+void Map::Draw(sf::RenderWindow& window)
+{
+    for (auto& tile : tiles)
+    {
+        if (tile.sprite) {
+            window.draw(*tile.sprite);  
+        }
+    }
+}

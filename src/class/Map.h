@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "Tile.h"
 
 class Map {
 public:
@@ -13,10 +14,13 @@ public:
     void Draw(sf::RenderWindow& window);
 
 private:
-    static const int NUM_SPRITES = 10;
+    // static const int NUM_SPRITES = 10;
 
     sf::Texture tileSheetTexture;
-    std::vector<sf::Sprite> sprites;
+    std::vector<Tile> tiles;
+    // std::vector<sf::Sprite> sprites;
+
+    // Tile *tiles;
 
     int tileWidth;
     int tileHeight;

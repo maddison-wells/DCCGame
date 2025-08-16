@@ -20,6 +20,48 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>16th August 2025</h2>
+
+I ran into the issue again where `sf::Sprite` has no default constructor, so trying to declare a `Tile` with a plain `sf::Sprite` caused the compiler to delete the default constructor and fail.
+
+The solution was to use `std::unique_ptr<sf::Sprite>` instead. This lets us delay the construction of the sprite until we have a valid `sf::Texture`, avoiding the need for a default constructor and automatically managing memory.
+
+I also used a vector instead of an array. I feel like having a mentor or working in a group would be really helpful here, I was able to find a work around and understand why it didn't work but I want to get it to work but already spent a lot of time on it the other day and don't want to stall my progress being caught up in the issue.
+
+```cpp
+
+// 2D tile map
+
+tiles.clear();
+tiles.reserve(totalTilesX * totalTilesY); //reserves memory
+
+for (size_t y = 0; y < totalTilesY; y++) {
+    for (size_t x = 0; x < totalTilesX; x++) {
+        int i = x + y * totalTilesX;
+
+        sf::IntRect rect(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+        Tile tile(i, &tileSheetTexture, rect); // New Tile created here
+
+        tile.sprite->setPosition(
+            sf::Vector2f(100.f + static_cast<float>(x) * tileWidth,
+                         100.f + static_cast<float>(y) * tileHeight)
+        );
+
+        tiles.emplace_back(std::move(tile)); // Tile is moved into the vector
+    }
+}
+
+void Map::Draw(sf::RenderWindow& window) {
+    for (auto& tile : tiles) {        //  range-based for loop
+        if (tile.sprite) {
+            window.draw(*tile.sprite); // dereference unique_ptr( if not dereferenced would give memory location)
+        }
+    }
+}
+
+
+```
+
 <h2>15th August 2025</h2>
 
 Arrays:
@@ -30,6 +72,23 @@ However, when I tried to use an array, I was having troubles with it needing a d
 I ended up reverting back to a vector to construct sprites dynamically after we have a texture, allocating the memory first using `reserve` then `emplace_back` lets us build sprites with their required texture directly inside the vector, avoiding moving/extra memory.
 
 Frustrated I couldn't get the array to work but hopefully I am about to still follow along with the tutorial as we make a map out of multiple sprites at a time
+
+**Pointers**
+`*`
+Every title will have an ID. A pointer holds a memory address, but unlike reference we can change the memory address to something else. Makes sense for the map to be able to change. 8 byte pointer to a 10Mb texture, better than heaps of textures.
+
+```cpp
+int phoneNum = 2347892;
+
+int* thePointer = &phoneNum;
+
+std::cout << thePointer << std::endl; //returns memory address not value
+
+std::cout << *thePointer << std::endl; //de-references
+
+```
+
+`Struct` - similar to class but all variables default to public unlike class that default to private. However, generally a struct is only for data, no functions etc.
 
 <h2>14th August 2025</h2>
 
