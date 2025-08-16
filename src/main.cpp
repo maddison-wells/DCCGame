@@ -30,14 +30,16 @@ Donut donut;
 Map map;
 
 //----------------INITIALISE / Load-------- 
+map.Initialize();
+map.Load();
+
 donut.Initialize();
 donut.Load();
 
 carl.Initialize();
 carl.Load();
 
-map.Initialize();
-map.Load();
+
 
 sf::Clock clock;
 //----------LOAD-------

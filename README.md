@@ -20,6 +20,17 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>15th August 2025</h2>
+
+Arrays:
+Memory management is better and its a built into the language of C++ unlike Vector(which is part of a library), better with speed. You need to initialise it with an amount, cant push more on later.
+
+However, when I tried to use an array, I was having troubles with it needing a default constructor and was going around in circles. When I set the texture to the sprite, it wasn't liking that it was an array.
+
+I ended up reverting back to a vector to construct sprites dynamically after we have a texture, allocating the memory first using `reserve` then `emplace_back` lets us build sprites with their required texture directly inside the vector, avoiding moving/extra memory.
+
+Frustrated I couldn't get the array to work but hopefully I am about to still follow along with the tutorial as we make a map out of multiple sprites at a time
+
 <h2>14th August 2025</h2>
 
 Making an editor
