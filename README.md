@@ -20,6 +20,40 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
     - Not Started 5/8/25</li>
   </ul>
 
+<h2>17th August 2025</h2>
+
+So the next step was to actually render a map onto the screen. At this stage of the learning process, I have assumed that a map is just a vector of numbers that is created. I suppose there is the option to assign names, like water, road etc but feel like maybe that is not a big time saver. Anyway, I created a dummyMap and then tired to figure out how to get it rendered. **So turning a 1D array into our 2D visual**
+
+I read the documentation and found it lacking to what I was looking for, so I penciled out a general concept and then fed it to ChatGPT who tidied it up and gave me the below. I wanted to make sure I really understood, so have added additional inline comments below.
+
+I think I need to practice algorithms more, as I understand how and I can think it out but actually getting it down is still tricky.
+
+```cpp
+
+void Map::DrawMapFromIDs(const std::vector<int>& mapData, int mapWidth, int mapHeight, sf::RenderWindow& window) //input when draw is called
+{
+    for (int y = 0; y < mapHeight; y++) { // for every row
+        for (int x = 0; x < mapWidth; x++) { //we go column by column
+            int i = x + y * mapWidth; // so that we give a number(index) to each position tile on our screen, 1D instead of 2 ie our Width is 60 and our position is y1, x 5 = that square has an index of 65.
+            int tileID = mapData[i]; //that number position in our dummyMap has a value ie mapData[65] = '7'
+            if (tileID >= 0 && tileID < tiles.size()) {
+                Tile& t = tiles[tileID];// that value represents a tile in our tiles vector created in our load loop
+                if (t.sprite) { //we create it - assign tile 7 to this square
+                    t.sprite->setPosition(sf::Vector2f(x * tileWidth, y * tileHeight));
+                    window.draw(*t.sprite);
+                }
+            }
+        }
+    }
+}
+
+void Map::Draw(sf::RenderWindow& window)
+{
+    DrawMapFromIDs(dummyMap, 60, 34, window);
+}
+
+```
+
 <h2>16th August 2025</h2>
 
 I ran into the issue again where `sf::Sprite` has no default constructor, so trying to declare a `Tile` with a plain `sf::Sprite` caused the compiler to delete the default constructor and fail.
