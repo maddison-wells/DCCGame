@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Tile.h"
+#include "MapLoader.h"
+#include "MapData.h"
 
 class Map {
 public:
@@ -23,6 +25,8 @@ private:
     sf::Texture tileSheetTexture;
     std::vector<Tile> tiles;
     std::vector<int> dummyMap;
+    MapLoader mapLoader;
+    MapData md;
         
     // std::vector<sf::Sprite> sprites;
 

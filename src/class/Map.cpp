@@ -1,4 +1,6 @@
 #include "Map.h"
+#include "MapLoader.h"
+#include "Map.h"
 #include <iostream>
 
 Map::Map()
@@ -35,7 +37,10 @@ void Map::DrawMapFromIDs(const std::vector<int>& mapData, int mapWidth, int mapH
 
 void Map::Load()
 {
-    if (!tileSheetTexture.loadFromFile("../img/world/apartment16x17.png")) {
+mapLoader.Load("../Assets/Data/mapData", md);
+
+    if (!tileSheetTexture.loadFromFile(md.tilesheet))
+    {
         std::cout << "Failed to load texture!" << std::endl;
         return;
     }

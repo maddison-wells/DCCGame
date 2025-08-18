@@ -1,12 +1,10 @@
 #pragma once
 #include <iostream>
-#include <fstream> 
+#include "MapData.h"
 
 class MapLoader{
 
-
-
   public: 
-    void Load(std::string filename);
+    void Load(std::string filename, MapData& data);
     // void Save(std::string filename);
 };

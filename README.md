@@ -13,12 +13,24 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h3>Refactor To-Do List</h3>
   <ul>
+  <li> Refactor load() in Map to take all details from dataFile
+    Not Started 17/8/25</li>
     <li>frameRate class
     - Rewatch part 16 1hr20.
     Not Started 12/8/25</li>
     <li>Movement function & walking animation
     - Not Started 5/8/25</li>
   </ul>
+
+<h2>18th August 2025</h2>
+
+Created a MapData struct
+
+`std::stoi` turns a `string` into an `int`
+
+So I'm up to 22/30 of the tutorial playlist and I was kinda thinking there was still a lot to cover in only 8 more lessons, turns out the tutorial is incomplete. Ive stilled learned a lot and will finish the available content but damn. Its probably good because I will really have to buckle in to get my level completed and might be able to boost my dopamine a bit more.
+
+Today completed the datafile and parse, was able to load the titleSheet from there instead of coding it in. Need to go through when I have a little more attention span and sub in all the variables. I want to wait until I learn abut the editor and able to build my level one background out. So will add to my to-do.
 
 <h2>17th August 2025</h2>
 
@@ -54,7 +66,7 @@ void Map::Draw(sf::RenderWindow& window)
 
 ```
 
-Also started to learn about `std::fstream` which I suppose is the answer to my previous thoughts on how to use this efficiently for maps. I understand the benefit of having seperate code for our maps, I assume you have a data file for each level and then just sub in as you go. We will see.
+Also started to learn about `std::fstream` which I suppose is the answer to my previous thoughts on how to use this efficiently for maps. I understand the benefit of having separate code for our maps, I assume you have a data file for each level and then just sub in as you go. We will see.
 
 <h2>16th August 2025</h2>
 
