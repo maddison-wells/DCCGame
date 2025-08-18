@@ -54,6 +54,8 @@ void Map::Draw(sf::RenderWindow& window)
 
 ```
 
+Also started to learn about `std::fstream` which I suppose is the answer to my previous thoughts on how to use this efficiently for maps. I understand the benefit of having seperate code for our maps, I assume you have a data file for each level and then just sub in as you go. We will see.
+
 <h2>16th August 2025</h2>
 
 I ran into the issue again where `sf::Sprite` has no default constructor, so trying to declare a `Tile` with a plain `sf::Sprite` caused the compiler to delete the default constructor and fail.

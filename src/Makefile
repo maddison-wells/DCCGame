@@ -2,7 +2,7 @@ CXX = clang++
 CXXFLAGS = -std=c++17 -I/usr/local/opt/sfml/include
 LDFLAGS = -L/usr/local/opt/sfml/lib -lsfml-graphics -lsfml-window -lsfml-system
 
-SRC = class/Map.cpp class/Math.cpp class/Carl.cpp class/Donut.cpp main.cpp
+SRC = class/MapLoader.cpp class/Map.cpp class/Math.cpp class/Carl.cpp class/Donut.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: dcc-app

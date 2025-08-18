@@ -7,6 +7,7 @@
 #include "class/Carl.h"
 #include "class/Donut.h"
 #include "class/Map.h"
+#include "class/MapLoader.h"
 
 
 
@@ -28,6 +29,9 @@ sf::Text frameRateText(font);
 Carl carl; //object 
 Donut donut;
 Map map;
+
+MapLoader mapLoader;
+mapLoader.Load("../Assets/Data/mapData");
 
 //----------------INITIALISE / Load-------- 
 map.Initialize();
