@@ -16,9 +16,13 @@ struct Projectile
 
 std::vector<Projectile> projectiles;
 
-    float playerSpeed = 2.0f;
+    float playerSpeed = .30f;
     float maxFireRate;
     float fireRateTimer;
+    int currentFrame;
+    float timeAccumulator; // for animation timing
+    const int totalFrames;
+    const float frameDelay; // seconds per frame
 
     float projectileSpeed = 0.5f;
     // sf::Vector2f projectileDirection;
@@ -40,4 +44,6 @@ std::vector<Projectile> projectiles;
   void Update(float deltaTime, Donut& donut); // called once per frame
   void Draw(sf::RenderWindow& window); // called once per frame
 
+
+    void setAnimationFrame(sf::Sprite& sprite, int frameIndex, int frameWidth, int frameHeight, int row);
 };

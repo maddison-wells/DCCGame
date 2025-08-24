@@ -70,8 +70,8 @@ sf::Clock clock;
 
 //----------------DRAW---------  
         window.clear();
-        map.Draw(window);
-        carl.Draw(window);
+        // map.Draw(window);
+        carl.Draw(window); 
         donut.Draw(window); 
         // window.draw(frameRateText);
         window.display();

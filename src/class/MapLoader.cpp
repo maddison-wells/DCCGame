@@ -68,4 +68,4 @@ void MapLoader::Load(std::string filename, MapData& data)
     else {
         std::cout << "unable to open " << filename << std::endl;
     }
-}
+}  

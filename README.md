@@ -2,25 +2,86 @@
 
 C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 
-<h3>Goals List</h3>
+## Project To-Do
 
-<ul>
-    <li>Get Carl to move into other areas - ❌</li>
-    <li>Get Carl to interact with background - ❌</li>
-    <li>Render background - ❌</li>
-    <li>Render Carl and get him to move - ✅</li>
-  </ul>
+| Description                                              | Date Created | Finished | Last Update | Notes                              |
+| -------------------------------------------------------- | ------------ | -------- | ----------- | ---------------------------------- |
+| Get Carl to move into other areas                        | 24/08/25     | ❌       |             |                                    |
+| Get Carl to interact with background                     | 24/08/25     | ❌       |             |                                    |
+| Refactor animation and add diagonal                      | 24/08/25     | ❌       |             |                                    |
+| Render background                                        | 24/08/25     | ❌       | 24/08/25    | starting build using online editor |
+| Refactor load() in Map to take all details from dataFile | 17/08/25     | ❌       |             |                                    |
+| FrameRate class                                          | 12/08/25     | ❌       | 12/08/25    | Rewatch part 16 1hr20              |
+| Movement function & walking animation                    | 11/08/25     | ✅       | 24/08/25    |                                    |
+| Render Carl and get him to move                          | 01/08/25     | ✅       | 06/08/25    |                                    |
 
-<h3>Refactor To-Do List</h3>
-  <ul>
-  <li> Refactor load() in Map to take all details from dataFile
-    Not Started 17/8/25</li>
-    <li>frameRate class
-    - Rewatch part 16 1hr20.
-    Not Started 12/8/25</li>
-    <li>Movement function & walking animation
-    - Not Started 5/8/25</li>
-  </ul>
+<h2>24th August 2025</h2>
+
+My **Carl** sprite is already set up in rows of movement, so I need to loop through each row depending on direction. I already have logic to move in each direction but just need to loop through multiple sprites instead of just one.
+
+Steps:
+
+1. Created an animation function:
+
+```cpp
+ void Carl::setAnimationFrame(sf::Sprite& sprite, int frameIndex, int frameWidth, int frameHeight, int row = 0) {
+    // frameIndex starts at 0
+    // Carl sprite is 64 x 64
+    int x = frameIndex * frameWidth;
+    int y = row * frameHeight;//row is in reference to sprite sheet (right movement is on row 4-1, 3)
+    sprite.setTextureRect(sf::IntRect({x, y}, {frameWidth, frameHeight}));
+}
+```
+
+2. Call function in update() when key is pressed:
+
+```cpp
+
+//constructor will look like this
+
+Carl::Carl() :
+    sprite(texture),
+    currentFrame(0), //0 so its first sprite in series, loops x axis of sprite
+    timeAccumulator(0.0f),
+    totalFrames(8), //my sprite sheet has 8 frames for each walking direction movement
+    frameDelay(80.f) //how long each sprite frame is displayed before moving to the next frame, bigger = slower walk.
+
+
+ {}
+
+void Carl::Update(float deltaTime, Donut& donut)
+{
+sf::Vector2f position = sprite.getPosition();
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)) {
+    timeAccumulator += deltaTime;
+    if (timeAccumulator >= frameDelay) {
+        currentFrame = (currentFrame + 1) % totalFrames; //loop logic ie 2%8 = 2 vs 8%8 =0
+        setAnimationFrame(sprite, currentFrame, 64, 64, 3); //currentFrame = frameIndex (x-axis)
+        timeAccumulator = 0.0f;//reset
+    }
+
+    sprite.setPosition(position + sf::Vector2f(1.f, 0.f) * playerSpeed * deltaTime); //moves sprite across screen
+    }
+}
+```
+
+Carl’s sprite is set up in rows for each movement direction, with 8 frames per row. The `setAnimationFrame()` function picks the correct frame based on the current frame index `(currentFrame)` and row. Using `timeAccumulator` and `frameDelay`, the animation cycles through the frames at a controlled speed, while the sprite moves across the screen when a movement key is pressed, creating smooth walking animation.
+
+<h2>23rd August 2025</h2>
+
+So for the last week, I was working on a mapEditor following alone with the tutorials. The problem became that the tutorials would go off topic and spiral into other things and I was struggling to hold my attention. I understood what the goal was and the theory to getting there but ultimately, decided my time would be better spent developing the game, then trying to build the editor.
+
+Also, because the internet is the internet, I found this website https://www.spritefusion.com/
+
+So building my own map editor seems redundant. If I continue to build games, 100% it would be a good learning experience but right now my goal is to learn C++ and SFML and have a small version of the game I can show people I built.
+
+So, I only have tutorial part 28 and 29 left. Im going to complete those, now that he has returned to building the game and then scope out the rest of my level build.
+
+Okay, scratch that, the last two he was still fiddling with the map editor. Now that I am riding solo, I need to think about next steps.
+
+1. I want to get **Carl & Donut** sprites to move in the correct way when they are walking.
+2. Build and render my level one map.
 
 <h2>18th August 2025</h2>
 
