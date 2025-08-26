@@ -4,20 +4,34 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 ## Project To-Do
 
-| Description                                              | Date Created | Finished | Last Update | Notes                              |
-| -------------------------------------------------------- | ------------ | -------- | ----------- | ---------------------------------- |
-| Get Carl to move into other areas                        | 24/08/25     | ❌       |             |                                    |
-| Get Carl to interact with background                     | 24/08/25     | ❌       |             |                                    |
-| Refactor animation and add diagonal                      | 24/08/25     | ❌       |             |                                    |
-| Render background                                        | 24/08/25     | ❌       | 24/08/25    | starting build using online editor |
-| Refactor load() in Map to take all details from dataFile | 17/08/25     | ❌       |             |                                    |
-| FrameRate class                                          | 12/08/25     | ❌       | 12/08/25    | Rewatch part 16 1hr20              |
-| Movement function & walking animation                    | 11/08/25     | ✅       | 24/08/25    |                                    |
-| Render Carl and get him to move                          | 01/08/25     | ✅       | 06/08/25    |                                    |
+| Description                                              | Date Created | Finished | Last Update                        | Notes                                                                 |
+| -------------------------------------------------------- | ------------ | -------- | ---------------------------------- | --------------------------------------------------------------------- |
+| Get Carl to move into other areas                        | 24/08/25     | ❌       |                                    |                                                                       |
+| Get Carl to interact with background                     | 24/08/25     | ❌       |                                    |                                                                       |
+| Refactor animation and add diagonal                      | 24/08/25     | ❌       |                                    |                                                                       |
+| Render background                                        | 24/08/25     | ❌       | 26/08/25                           | 24/8 - starting build using online editor <br>26/8 - import JSON file |
+| Refactor load() in Map to take all details from dataFile | 17/08/25     | ❌       |                                    |                                                                       |
+| FrameRate class                                          | 12/08/25     | ❌       | 12/08/25                           | Rewatch part 16 1hr20                                                 |
+| Movement function & walking animation                    | 11/08/25     | ✅       | <a href="#aug24-2025">24/08/25</a> |
+| Render Carl and get him to move                          | 01/08/25     | ✅       | <a href="#aug6-2025">06/08/25</a>  |                                                                       |
 
-<h2>24th August 2025</h2>
+<h2>26th August 2025</h2>
+
+I've been working on the level in the map editor and I thought I would have a lot of fun here but man-oh-man its a drag.. I think because I can't just draw what I want in, I have to rely on being able to find something online and then being able to get it to the right size. I don't have my iPad while im travelling, so having to settle is not making the perfectionist in me happy.
+
+I think I will use just a rough version for now, so that I can keep working on the actual coding. Otherwise, I will spend weeks getting it the way I want it.
+
+<img src="img/gameplay/FirstLevel1.png" width="300px">
+
+This has 7 layers, so I need to render it, scale it to match my **Carl** sprite, then work on making each layer work, ie can't walk thorugh walls.
+
+The file is in JSON, so will need to update my code to read it as well.
+
+<h2 id="aug24-2025">24th August 2025</h2>
 
 My **Carl** sprite is already set up in rows of movement, so I need to loop through each row depending on direction. I already have logic to move in each direction but just need to loop through multiple sprites instead of just one.
+
+I also created a file to make sure I am crediting where I am getting the art from [here](img/gameplay/credit.txt)
 
 Steps:
 
@@ -67,6 +81,18 @@ sf::Vector2f position = sprite.getPosition();
 ```
 
 Carl’s sprite is set up in rows for each movement direction, with 8 frames per row. The `setAnimationFrame()` function picks the correct frame based on the current frame index `(currentFrame)` and row. Using `timeAccumulator` and `frameDelay`, the animation cycles through the frames at a controlled speed, while the sprite moves across the screen when a movement key is pressed, creating smooth walking animation.
+
+Now, that is sorted, I want to work on my `tileSheet`. I feel this is a task for in front of the TV, beacuse I know im about to be super indecisive. I'm going to make layers:
+
+1. Floor Layer
+
+2. Wall/Collision Layer
+
+3. Decoration Layer (Non-Collidable) - carpets, flowers etc.
+
+4. Interactable/Overhead Layer
+
+5. Trigger Layer - Contains invisible tiles used to trigger events (teleports, cutscenes, item pickups).
 
 <h2>23rd August 2025</h2>
 
@@ -384,7 +410,7 @@ Steps for creating
 
 This is all pretty straight forward logically, however remembering it all will take some practise.
 
-<h2>6th August 2025</h2>
+<h2 id="aug6-2025">6th August 2025</h2>
 
 🎉 I forgot to mention I made it to my first goal yesterday. I was able to get **Carl** to move around the screen. Still need to finesse it with more character renders but it was for sure a win.
 
