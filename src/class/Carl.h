@@ -1,7 +1,7 @@
 #pragma once //Only include this header file once per compilation
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Donut.h"
+// #include "Donut.h"
 
 
 class Carl
@@ -41,7 +41,8 @@ std::vector<Projectile> projectiles;
 
   void Initialize(); //called once per app start
   void Load(); //called once per app start
-  void Update(float deltaTime, Donut& donut); // called once per frame
+  void Update(float deltaTime); 
+  // void Update(float deltaTime, Donut& donut); // called once per frame
   void Draw(sf::RenderWindow& window); // called once per frame
 
 

@@ -6,6 +6,7 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 | Description                                              | Date Created | Finished | Last Update                        | Notes                                                                 |
 | -------------------------------------------------------- | ------------ | -------- | ---------------------------------- | --------------------------------------------------------------------- |
+| Get Donut to follow Carl                                 | 03/10/25     | ❌       |                                    |                                                                       |
 | Get Carl to move into other areas                        | 24/08/25     | ❌       |                                    |                                                                       |
 | Get Carl to interact with background                     | 24/08/25     | ❌       |                                    |                                                                       |
 | Refactor animation and add diagonal                      | 24/08/25     | ❌       |                                    |                                                                       |
@@ -15,9 +16,21 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 | Movement function & walking animation                    | 11/08/25     | ✅       | <a href="#aug24-2025">24/08/25</a> |
 | Render Carl and get him to move                          | 01/08/25     | ✅       | <a href="#aug6-2025">06/08/25</a>  |                                                                       |
 
+<h2>4th October 2025</h2>
+
+The reason my **Carl** class was using **Donut** was for firing the projectiles, so I have commented that code out because I no longer need that functionality but in the future will need it but not orienatted towards **Donut**
+
+<h2>3rd October 2025</h2>
+
+Still traveling and feeling a little unmotivated by this project. Today/Week my goal is to get **Donut** to follow **Carl** around.
+
+I will need to check my projectile code, I feel it will not like this but first will get the positioning right for **Donut** and go from there.
+
+I think I have the rough idea, my issue at them moment is that my Donut class is used in my Carl class and I need to use my Carl class in my Donut class, so need to figure out the circular issue
+
 <h2>26th August 2025</h2>
 
-I've been working on the level in the map editor and I thought I would have a lot of fun here but man-oh-man its a drag.. I think because I can't just draw what I want in, I have to rely on being able to find something online and then being able to get it to the right size. I don't have my iPad while im travelling, so having to settle is not making the perfectionist in me happy.
+I've been working on the level in the map editor and I thought I would have a lot of fun here but man-oh-man its a drag.. I think because I can't just draw what I want in, I have to rely on being able to find something online and then being able to get it to the right size. I don't have my iPad while im traveling, so having to settle is not making the perfectionist in me happy.
 
 I think I will use just a rough version for now, so that I can keep working on the actual coding. Otherwise, I will spend weeks getting it the way I want it.
 

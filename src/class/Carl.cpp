@@ -53,10 +53,11 @@ void Carl::Load(){
     
     sprite.setTextureRect(sf::IntRect({0, 128}, {64, 64}));
     
-    sprite.setPosition({100,700});
+    sprite.setPosition({200,700});
 }
 
-void Carl::Update(float deltaTime, Donut& donut)
+// void Carl::Update(float deltaTime, Donut& donut)
+void Carl::Update(float deltaTime)
 {
     // Timer for fire rate
     fireRateTimer += deltaTime;
@@ -113,45 +114,45 @@ void Carl::Update(float deltaTime, Donut& donut)
     }
     
     // --- Fire projectile ---
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fireRateTimer >= maxFireRate)
-    {
-        Projectile p;
-        p.shape.setSize(sf::Vector2f(50, 25));
-        p.shape.setPosition(sprite.getPosition());
+    // if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fireRateTimer >= maxFireRate)
+    // {
+    //     Projectile p;
+    //     p.shape.setSize(sf::Vector2f(50, 25));
+    //     p.shape.setPosition(sprite.getPosition());
         
-        // Calculate initial direction toward Donut
-        sf::Vector2f diff = donut.sprite.getPosition() - p.shape.getPosition();
-        if (Math::VectorLength(diff) > 0.001f) {
-            p.direction = Math::NormalizeVector(diff);
-        } else {
-            p.direction = {0.f, 0.f};
-        }
+    //     // Calculate initial direction toward Donut
+    //     sf::Vector2f diff = donut.sprite.getPosition() - p.shape.getPosition();
+    //     if (Math::VectorLength(diff) > 0.001f) {
+    //         p.direction = Math::NormalizeVector(diff);
+    //     } else {
+    //         p.direction = {0.f, 0.f};
+    //     }
         
-        projectiles.push_back(p);
-        fireRateTimer = 0;
-    }
+    //     projectiles.push_back(p);
+    //     fireRateTimer = 0;
+    // }
     
     // --- Move projectiles ---
-    for (auto& proj : projectiles) {
-        proj.shape.setPosition(
-            proj.shape.getPosition() + proj.direction * projectileSpeed * deltaTime);
-        }
+    // for (auto& proj : projectiles) {
+    //     proj.shape.setPosition(
+    //         proj.shape.getPosition() + proj.direction * projectileSpeed * deltaTime);
+    //     }
         
         // --- Collision detection ---
-        for (int i = projectiles.size() - 1; i >= 0; --i)
-        {
-            if(donut.health >=0){
-                if (Math::CheckRectCollision(projectiles[i].shape.getGlobalBounds(),
-                donut.sprite.getGlobalBounds()))
-                {
-                    std::cout << "collision" << std::endl;
-                    projectiles.erase(projectiles.begin() + i);
+        // for (int i = projectiles.size() - 1; i >= 0; --i)
+        // {
+        //     if(donut.health >=0){
+        //         if (Math::CheckRectCollision(projectiles[i].shape.getGlobalBounds(),
+        //         donut.sprite.getGlobalBounds()))
+        //         {
+        //             std::cout << "collision" << std::endl;
+        //             projectiles.erase(projectiles.begin() + i);
                     
-                    donut.health -= 10;
-                    std::cout << donut.health << std::endl;
-                }
-            }
-        }
+        //             donut.health -= 10;
+        //             std::cout << donut.health << std::endl;
+        //         }
+        //     }
+        // }
         
         // Update bounding box
         boundingRectangle.setPosition(sprite.getPosition());

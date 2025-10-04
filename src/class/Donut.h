@@ -1,6 +1,9 @@
 #pragma once
 
+
 #include <SFML/Graphics.hpp>
+
+class Carl;
 
 class Donut 
 { 
@@ -23,7 +26,7 @@ class Donut
   public:
 
   void Initialize();
-  void Load();
+  void Load(Carl& carl);
   void Update(float deltaTime);
   void Draw(sf::RenderWindow& window);
 

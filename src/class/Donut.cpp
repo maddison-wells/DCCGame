@@ -1,7 +1,9 @@
 #include "Donut.h"
+#include "Carl.h"
 #include <iostream>
 
 Donut::Donut() :
+
 
 sprite(texture),
 health(20)
@@ -19,7 +21,7 @@ void Donut::Initialize(){
 
 }
 
-void Donut::Load(){
+void Donut::Load(Carl& carl){
 
   if(texture.loadFromFile("../img/player/textures/donut_sprite.png"))
 {
@@ -32,7 +34,16 @@ else{
 
 
 sprite.setTexture(texture);
-sprite.setPosition(sf::Vector2f(400,100));
+sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
+
+// sprite.setPosition(sf::Vector2f(Carl.sprite.getPosition()));
+std::cout << "Position: (" 
+          << carl.sprite.getPosition().x << ", " 
+          << carl.sprite.getPosition().y << ")" << std::endl;
+// sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
+
+
+
 
 
 sprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
@@ -49,6 +60,6 @@ void Donut::Draw(sf::RenderWindow& window){
   
   if(health > 0){
   window.draw(sprite);
-  window.draw(boundingRectangle);  
+  // window.draw(boundingRectangle);  
   }
 }
