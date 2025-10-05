@@ -36,11 +36,12 @@ Map map;
 map.Initialize();
 map.Load();
 
+carl.Initialize();
+carl.Load();
+
 donut.Initialize();
 donut.Load(carl);
 
-carl.Initialize();
-carl.Load();
 
 
 
@@ -66,7 +67,7 @@ sf::Clock clock;
         map.Update(deltaTime);
         // carl.Update(deltaTime, donut);
         carl.Update(deltaTime);
-        donut.Update(deltaTime);
+        donut.Update(deltaTime, carl);
 //----------------UPDATE---------  
 
 //----------------DRAW---------  

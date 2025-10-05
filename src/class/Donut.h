@@ -27,7 +27,7 @@ class Donut
 
   void Initialize();
   void Load(Carl& carl);
-  void Update(float deltaTime);
+  void Update(float deltaTime, Carl& carl);
   void Draw(sf::RenderWindow& window);
 
 };

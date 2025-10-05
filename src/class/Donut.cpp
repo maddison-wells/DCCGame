@@ -34,12 +34,10 @@ else{
 
 
 sprite.setTexture(texture);
-sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
+// sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
 
-// sprite.setPosition(sf::Vector2f(Carl.sprite.getPosition()));
-std::cout << "Position: (" 
-          << carl.sprite.getPosition().x << ", " 
-          << carl.sprite.getPosition().y << ")" << std::endl;
+// sprite.setPosition(carl.sprite.getPosition());
+
 // sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
 
 
@@ -50,10 +48,16 @@ sprite.setTextureRect(sf::IntRect({96, 0}, {32, 32}));
 
 }
 
-void Donut::Update(float deltaTime){
+void Donut::Update(float deltaTime, Carl& carl){
   if(health >0){
  boundingRectangle.setPosition(sprite.getPosition());
 }
+
+// sprite.setPosition(carl.sprite.getPosition());
+sf::Vector2f carlPos = carl.sprite.getPosition();   // get Carl's position
+sf::Vector2f donutPos(carlPos.x + 64.f, carlPos.y);  // offset by 16px on x-axis
+sprite.setPosition(donutPos);
+
 }
 
 void Donut::Draw(sf::RenderWindow& window){

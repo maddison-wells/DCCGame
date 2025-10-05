@@ -18,7 +18,15 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 <h2>4th October 2025</h2>
 
-The reason my **Carl** class was using **Donut** was for firing the projectiles, so I have commented that code out because I no longer need that functionality but in the future will need it but not orienatted towards **Donut**
+The reason my **Carl** class was using **Donut** was for firing the projectiles, so I have commented that code out because I no longer need that functionality but in the future will need it but not orientated towards **Donut**
+
+Success-ish. I was able to get the position correct, now I need to animate **Donut** to appear to be walking too. Also, not sure how to code the position for when **Carl** changes direction. Will do some research on what looks good, ie Pokemon yellow gameplay.
+
+So Ash walks over Pikachu and they switch positions and then Pikachu turns around.
+
+<img src="img/gameplay/yellow-gameplay.png" width="100px">
+
+Im curious if I set **Donut's** position to be offset based on **Carl's** position for each direction and then set **Donut's** movement really slow for that part and then turn at the end of the movement if it will look right... I know what I mean.
 
 <h2>3rd October 2025</h2>
 
