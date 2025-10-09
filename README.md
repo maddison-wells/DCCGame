@@ -6,7 +6,7 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 
 | Description                                              | Date Created | Finished | Last Update                        | Notes                                                                 |
 | -------------------------------------------------------- | ------------ | -------- | ---------------------------------- | --------------------------------------------------------------------- |
-| Get Donut to follow Carl                                 | 03/10/25     | ❌       |                                    |                                                                       |
+| Get Donut to follow Carl                                 | 03/10/25     | ✅       | 09/10/25                           |                                                                       |
 | Get Carl to move into other areas                        | 24/08/25     | ❌       |                                    |                                                                       |
 | Get Carl to interact with background                     | 24/08/25     | ❌       |                                    |                                                                       |
 | Refactor animation and add diagonal                      | 24/08/25     | ❌       |                                    |                                                                       |
@@ -15,6 +15,20 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 | FrameRate class                                          | 12/08/25     | ❌       | 12/08/25                           | Rewatch part 16 1hr20                                                 |
 | Movement function & walking animation                    | 11/08/25     | ✅       | <a href="#aug24-2025">24/08/25</a> |
 | Render Carl and get him to move                          | 01/08/25     | ✅       | <a href="#aug6-2025">06/08/25</a>  |                                                                       |
+
+<h2>9th October 2025</h2>
+
+Todays mission is to animate **Donut's** movements, using the same code I did for **Carl**. I can probably look to use the code in its own class and that way it isn't in two places but let first get it working before getting all fancy. Its been a hot minute since I got the animation code to work but luckily Ive been keeping amazing notes.
+
+.. 2hrs later.
+
+Okay so my notes weren't that amazing but I saw the gaps and updated them. The code kept breaking the application though and I narrowed it down to the `Donut::Update()` but when I commented it back in without changing anything else, it just started working. This is frustrating because I didn't learn how to fix the issue, it just fixed itself and I worked on it for a while. I guess I should be grateful I can now move on but still. By first
+
+<img src="img/gameplay/dcc-gameplay1.gif" width="300px">
+
+Next step is to just get **Donuts** position to change, so she is always behind but inline with **Carl**.
+
+Today's stretch goal is to start work on a health bar for each.
 
 <h2>4th October 2025</h2>
 
@@ -66,6 +80,11 @@ Steps:
     int y = row * frameHeight;//row is in reference to sprite sheet (right movement is on row 4-1, 3)
     sprite.setTextureRect(sf::IntRect({x, y}, {frameWidth, frameHeight}));
 }
+
+// in .h
+
+    void setAnimationFrame(sf::Sprite& sprite, int frameIndex, int frameWidth, int frameHeight, int row);
+
 ```
 
 2. Call function in update() when key is pressed:

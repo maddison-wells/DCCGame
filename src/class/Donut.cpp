@@ -1,17 +1,28 @@
 #include "Donut.h"
 #include "Carl.h"
 #include <iostream>
+#include <vector>
 
 Donut::Donut() :
 
 
 sprite(texture),
-health(20)
+health(20),
+cFrame(0),
+tFrames(3),
+fDelay(80.0f)
+
 
 {}
 
 Donut:: ~Donut()
 {}
+
+void Donut::setAnimationFrame(sf::Sprite& sprite, int frameIndex, int frameWidth, int frameHeight, int row = 0) {
+  int x = frameIndex * frameWidth;
+  int y = row * frameHeight;
+  sprite.setTextureRect(sf::IntRect({x,y}, {frameWidth, frameHeight}));
+}
 
 void Donut::Initialize(){
   boundingRectangle.setFillColor(sf::Color::Transparent);
@@ -36,7 +47,7 @@ else{
 sprite.setTexture(texture);
 // sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
 
-// sprite.setPosition(carl.sprite.getPosition());
+sprite.setPosition(carl.sprite.getPosition());
 
 // sprite.setPosition(sf::Vector2f(100,100)); //not to Carl
 
@@ -55,8 +66,56 @@ void Donut::Update(float deltaTime, Carl& carl){
 
 // sprite.setPosition(carl.sprite.getPosition());
 sf::Vector2f carlPos = carl.sprite.getPosition();   // get Carl's position
-sf::Vector2f donutPos(carlPos.x + 64.f, carlPos.y);  // offset by 16px on x-axis
+sf::Vector2f donutPos(carlPos.x - 10.f, carlPos.y + 40.f);  // offset by 16px on x-axis
 sprite.setPosition(donutPos);
+
+
+sf::Vector2f position = sprite.getPosition();
+
+if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)){
+  tAccumulator += deltaTime;
+  if(tAccumulator >= fDelay){
+    cFrame = (cFrame + 1) % tFrames;
+    setAnimationFrame(sprite, cFrame,32, 32, 0);
+    tAccumulator = 0.0f;
+  }
+
+  sprite.setPosition(position + sf::Vector2f(1.f, 0.f) * pSpeed * deltaTime);
+}
+
+
+if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)){
+  tAccumulator += deltaTime;
+  if(tAccumulator >= fDelay){
+    cFrame = (cFrame + 1) % tFrames;
+    setAnimationFrame(sprite, cFrame,32, 32, 3);
+    tAccumulator = 0.0f;
+  }
+
+  sprite.setPosition(position + sf::Vector2f(-1.f, 0.f) * pSpeed * deltaTime);
+}
+
+if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
+  tAccumulator += deltaTime;
+  if(tAccumulator >= fDelay){
+    cFrame = (cFrame + 1) % tFrames;
+    setAnimationFrame(sprite, cFrame,32, 32, 2);
+    tAccumulator = 0.0f;
+  }
+
+  sprite.setPosition(position + sf::Vector2f(0.f, -1.f) * pSpeed * deltaTime);
+}
+
+if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)){
+  tAccumulator += deltaTime;
+  if(tAccumulator >= fDelay){
+    cFrame = (cFrame + 1) % tFrames;
+    setAnimationFrame(sprite, cFrame,32, 32, 1);
+    tAccumulator = 0.0f;
+  }
+
+  sprite.setPosition(position + sf::Vector2f(0.f, 1.f) * pSpeed * deltaTime);
+}
 
 }
 

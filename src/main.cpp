@@ -14,9 +14,9 @@
 int main() {
 
 //----------------INITIALISE---------    
-    sf::RenderWindow window(sf::VideoMode({1920, 1080}), "Dungeon Crawler Carl");
+    // sf::RenderWindow window(sf::VideoMode({1920, 1080}), "Dungeon Crawler Carl");
 
-    //  sf::RenderWindow window(sf::VideoMode({600, 400}), "Dungeon Crawler Carl");
+     sf::RenderWindow window(sf::VideoMode({600, 400}), "Dungeon Crawler Carl");
 
     window.setFramerateLimit(240);
 

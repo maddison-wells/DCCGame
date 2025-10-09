@@ -166,6 +166,6 @@ void Carl::Update(float deltaTime)
     
             }
        
-       window.draw(boundingRectangle);     
+    //    window.draw(boundingRectangle);     
     }
 
