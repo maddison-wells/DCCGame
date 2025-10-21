@@ -16,15 +16,20 @@ C++ game using SFML, based on the Dungeon Crawler Carl Series by Matt Dinniman
 | Movement function & walking animation                    | 11/08/25     | ✅       | <a href="#aug24-2025">24/08/25</a> |
 | Render Carl and get him to move                          | 01/08/25     | ✅       | <a href="#aug6-2025">06/08/25</a>  |                                                                       |
 
+<h2>21st October 2025</h2>
+
+I think im going to change the structure of the game a little to be more of a Mario type vibe. So instead of a whole world its a linear progression across the screen. I created a new branch to load the map into, so I am going to work on that over the next few days.
+
 <h2>9th October 2025</h2>
 
 Todays mission is to animate **Donut's** movements, using the same code I did for **Carl**. I can probably look to use the code in its own class and that way it isn't in two places but let first get it working before getting all fancy. Its been a hot minute since I got the animation code to work but luckily Ive been keeping amazing notes.
 
 .. 2hrs later.
 
-Okay so my notes weren't that amazing but I saw the gaps and updated them. The code kept breaking the application though and I narrowed it down to the `Donut::Update()` but when I commented it back in without changing anything else, it just started working. This is frustrating because I didn't learn how to fix the issue, it just fixed itself and I worked on it for a while. I guess I should be grateful I can now move on but still. By first
+Okay so my notes weren't that amazing but I saw the gaps and updated them. The code kept breaking the application though and I narrowed it down to the `Donut::Update()` but when I commented it back in without changing anything else, it just started working. This is frustrating because I didn't learn how to fix the issue, it just fixed itself and I worked on it for a while. I guess I should be grateful I can now move on but still. By first a little sneak peek and come praise from the reddit community
 
 <img src="img/gameplay/dcc-gameplay1.gif" width="300px">
+<img src="img/gameplay/reddit.jpg" width="250px">
 
 Next step is to just get **Donuts** position to change, so she is always behind but inline with **Carl**.
 
